@@ -1,0 +1,38 @@
+@use "../util/" as u;
+
+h1,
+h2 {
+  font-family: u.$fontHeader;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 1.4036259541984732rem + 2.544529262086514vw, 2.625rem);
+}
+
+h2 {
+  font-size: clamp(
+    1.125rem,
+    0.767175572519084rem + 1.5267175572519085vw,
+    1.5rem
+  );
+}
+
+p {
+  font-family: u.$fontBody;
+  font-weight: 300;
+  font-size: clamp(
+    0.75rem,
+    0.6179577464788732rem + 0.5633802816901408vw,
+    1.125rem
+  );
+  line-height: 1.5;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}

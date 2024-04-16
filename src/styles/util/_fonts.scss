@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "AUTHENTIC Sans header";
+  src: url("../assets/fonts/AUTHENTICSans-90.woff2") format("woff2");
+  src: url("../assets/fonts/AUTHENTICSans-90.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AUTHENTIC Sans body";
+  src: url("../assets/fonts/AUTHENTICSans-60.woff2") format("woff2"),
+    url("../assets/fonts/AUTHENTICSans-60.woff") format("woff");
+}
+
+$fontHeader: "AUTHENTIC Sans header";
+$fontBody: "AUTHENTIC Sans body";
