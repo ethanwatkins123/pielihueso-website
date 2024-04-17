@@ -1,25 +1,23 @@
 import "./bottomNav.scss";
+import { Link } from "react-router-dom";
 
 const BottomNav = () => {
   return (
     <ul className="footer__nav">
       <li className="footer__nav-item">
-        {/* Change to Link element and add routing */}
-        <a className="footer__link" href="">
+        <Link to="/contacto" className="footer__link">
           Contacto
-        </a>
+        </Link>
       </li>
       <li>
-        {/* Change to Link element and add routing */}
-        <a className="footer__link" href="">
+        <Link to="/donde-comprar" className="footer__link">
           Donde cómprar
-        </a>
+        </Link>
       </li>
       <li>
-        {/* Change to Link element and add routing */}
-        <a className="footer__link" href="">
+        <Link to="/faq" className="footer__link">
           FAQ
-        </a>
+        </Link>
       </li>
     </ul>
   );

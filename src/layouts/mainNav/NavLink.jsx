@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { slide } from "./menuSlide";
+import { Link } from "react-router-dom";
 
-const Link = ({ data }) => {
+const NavLink = ({ data }) => {
   return (
     <motion.li
       className="list-item"
@@ -11,14 +12,14 @@ const Link = ({ data }) => {
       initial="initial"
       exit="exit"
     >
-      <a
+      <Link
         className={`link ${window.innerWidth <= 700 ? "button-border" : ""}`}
-        href={data.href}
+        to={data.to}
       >
         {data.title}
-      </a>
+      </Link>
     </motion.li>
   );
 };
 
-export default Link;
+export default NavLink;

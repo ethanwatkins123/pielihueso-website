@@ -2,62 +2,59 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import { menuSlide } from "./menuSlide";
-import Link from "./Link";
+import NavLink from "./NavLink";
+import { Link } from "react-router-dom";
 
 import "./mainNav.scss";
 
 const mobileNavItems = [
   {
     title: "Vinos",
-    href: "/",
+    to: "/vinos",
   },
   {
     title: "Nuestra historia",
     // check this
-    href: "/Nuestra historia",
+    to: "/nuestra-historia",
   },
   {
     title: "La finca",
-    // check this
-    href: "/La finca",
+    to: "/la-finca",
   },
   {
     title: "Equipo",
-    href: "/Equipo",
+    to: "/equipo",
   },
   {
     title: "Donde cómprar",
-    // check this
-    href: "/Donde cómprar",
+    to: "/donde-comprar",
   },
   {
     title: "FAQ",
-    href: "/FAQ",
+    to: "/faq",
   },
   {
     title: "Contacto",
-    href: "/Contacto",
+    to: "/contacto",
   },
 ];
 
 const desktopNavItems = [
   {
     title: "Vinos",
-    href: "/",
+    to: "/vinos",
   },
   {
     title: "Nuestra historia",
-    // check this
-    href: "/Nuestra historia",
+    to: "/nuestra-historia",
   },
   {
     title: "La finca",
-    // check this
-    href: "/La finca",
+    to: "/la-finca",
   },
   {
     title: "Equipo",
-    href: "/Equipo",
+    to: "/equipo",
   },
 ];
 
@@ -134,11 +131,11 @@ const MainNav = () => {
             {/* <div className="body"> */}
             <ul className="nav">
               {mobileNavItems.map((item, index) => (
-                <Link
+                <NavLink
                   className="link"
                   key={index}
                   data={{ ...item, index }}
-                ></Link>
+                ></NavLink>
               ))}
             </ul>
             {/* </div> */}
@@ -151,9 +148,9 @@ const MainNav = () => {
             <ul className="nav">
               {desktopNavItems.map((item, index) => (
                 <li key={index}>
-                  <a className="link" href={item.href}>
+                  <Link className="link" to={item.to}>
                     {item.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
