@@ -1,0 +1,87 @@
+@use "../../styles/util/" as u;
+
+.page-container {
+  display: grid;
+  grid-template-rows: 9.1% 1fr 6.9%;
+  // device test this on mobile
+  height: 100vh;
+
+  @include u.breakpoint(medium) {
+    grid-template-rows: 5.2% 1fr 4.4%;
+  }
+
+  @include u.breakpoint(large) {
+    grid-template-rows: 6.8% 1fr 4.9%;
+  }
+}
+
+.header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+
+  &__logo {
+    width: u.rem(254);
+
+    @include u.breakpoint(medium) {
+      width: u.rem(220);
+    }
+
+    @include u.breakpoint(large) {
+      width: u.rem(330);
+    }
+  }
+}
+
+.main {
+  margin: 0 24px;
+  border-radius: 24px;
+  border: 1px solid var(--clr-black);
+  overflow: scroll;
+}
+
+.footer {
+  padding: 14px 24px;
+
+  &__nav {
+    display: none;
+
+    @include u.breakpoint(medium) {
+      display: flex;
+    }
+  }
+
+  @include u.breakpoint(medium) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__details {
+    font-size: u.rem(14);
+    display: none;
+
+    @include u.breakpoint(xlarge) {
+      display: block;
+    }
+  }
+
+  &__lang-button {
+    border: none;
+    font-size: u.rem(15);
+  }
+
+  // review this hack
+  &__icon {
+    margin-bottom: 6px;
+  }
+}
