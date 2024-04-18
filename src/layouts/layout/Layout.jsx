@@ -1,5 +1,6 @@
 import MainNav from "../mainNav/MainNav";
 import BottomNav from "../bottomNav/BottomNav";
+import { Link } from "react-router-dom";
 
 import "./layout.scss";
 
@@ -10,10 +11,9 @@ const Layout = ({ children }) => {
   return (
     <div className="page-container">
       <header className="header">
-        {/* change to Link element and add routing */}
-        <a href="/">
+        <Link to="/">
           <img className="header__logo" src={logo} alt="Pielihueso Home" />
-        </a>
+        </Link>
         <MainNav className="header__nav" />
       </header>
 

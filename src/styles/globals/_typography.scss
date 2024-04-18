@@ -10,6 +10,11 @@ h2 {
 
 h1 {
   font-size: clamp(2rem, 1.4036259541984732rem + 2.544529262086514vw, 2.625rem);
+  // letter-spacing: clamp(
+  //   -0.02rem,
+  //   -0.011011450381679392rem + 0.13231552162849874vw,
+  //   0.0525rem
+  // );
 }
 
 h2 {
@@ -35,4 +40,61 @@ a,
 a:visited,
 a:active {
   text-decoration: none;
+}
+
+.text-intro {
+  font-family: u.$fontHeader;
+  font-size: clamp(
+    1.125rem,
+    0.767175572519084rem + 1.5267175572519085vw,
+    1.5rem
+  );
+  font-weight: 400;
+  line-height: 1.3;
+
+  @include u.breakpoint(medium) {
+    line-height: 1.2;
+  }
+}
+
+.text-body {
+  font-family: u.$fontBody;
+  font-size: clamp(
+    0.75rem,
+    0.6179577464788732rem + 0.5633802816901408vw,
+    1.125rem
+  );
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.text-heading-primary {
+  font-size: clamp(2rem, 1.4036259541984732rem + 2.544529262086514vw, 2.625rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.32px;
+
+  @include u.breakpoint(medium) {
+    letter-spacing: -0.84px;
+  }
+}
+
+.text-heading-secondary {
+  font-size: clamp(
+    0.75rem,
+    0.571087786259542rem + 0.7633587786259542vw,
+    0.9375rem
+  );
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: clamp(
+    0.00225rem,
+    0.0017132633587786258rem + 0.002290076335877863vw,
+    0.0028125rem
+  );
+  text-transform: uppercase;
+
+  @include u.breakpoint(medium) {
+    line-height: 1.2;
+  }
 }

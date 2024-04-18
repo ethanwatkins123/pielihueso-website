@@ -17,8 +17,22 @@ import "./styles/styles.scss";
 function App() {
   const location = useLocation();
 
+  // to determine the background color based on location
+  const getBackgroundColor = () => {
+    switch (location.pathname) {
+      case "/donde-comprar":
+        return "var(--clr-green)";
+      case "/contacto":
+        return "var(--clr-yellow)";
+      case "/faq":
+        return "var(--clr-pink)";
+      default:
+        return "var(--clr-offwhite)";
+    }
+  };
+
   return (
-    <>
+    <div className="app" style={{ backgroundColor: getBackgroundColor() }}>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/vinos" element={<Vinos />} />
@@ -29,7 +43,7 @@ function App() {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/faq" element={<Faq />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

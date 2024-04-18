@@ -5,7 +5,7 @@ import "./faq.scss";
 const Faq = () => {
   return (
     <>
-      <Layout>FAQ</Layout>>
+      <Layout>FAQ</Layout>
     </>
   );
 };

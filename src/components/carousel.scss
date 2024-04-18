@@ -1,0 +1,100 @@
+@use "../styles/util/" as u;
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  // correct...
+  margin-right: -32px;
+  -webkit-overflow-scrolling: touch; // Enable smooth scrolling on iOS devices
+
+  @include u.breakpoint(medium) {
+    gap: 20px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none; // Hide scrollbar
+  }
+
+  &__item {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  &__image-wrapper {
+    width: 421px;
+    position: relative;
+
+    @include u.breakpoint(medium) {
+      width: 375px;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    margin-block-start: 16px;
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    img {
+      width: 0.625rem;
+      position: relative;
+    }
+  }
+}
+
+// position the carousel within the global container boundaries
+// make container width a variable
+// .slide-center {
+//   transform: translateX(calc(max(1200px, 100vw) / 2 - calc(1200px / 2)));
+// }
+
+// hidden on screen reader
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.slide__captions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+  color: white;
+
+  h2 {
+    font-size: 42px;
+    line-height: 120%;
+    letter-spacing: -0.84px;
+    margin-block-end: 24px;
+  }
+
+  h3 {
+    font-size: 15px;
+    line-height: 120%;
+    letter-spacing: 0.045px;
+    text-transform: uppercase;
+  }
+}

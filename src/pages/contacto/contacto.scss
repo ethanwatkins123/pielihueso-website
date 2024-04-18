@@ -1,0 +1,101 @@
+@use "../../styles/util/" as u;
+
+.contacto {
+  width: 100%;
+  height: 100%;
+  padding: 32px 24px 80px;
+
+  @include u.breakpoint(medium) {
+    padding: 44px 26px 80px;
+  }
+
+  @include u.breakpoint(large) {
+    padding: 48px 31.5px 80px;
+  }
+
+  &__heading {
+    margin-block-end: 24px;
+
+    @include u.breakpoint(medium) {
+      margin-block-end: 32px;
+    }
+  }
+
+  &__container {
+    width: 100%;
+
+    @include u.breakpoint(medium) {
+      display: flex;
+      gap: 30px;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    @include u.breakpoint(large) {
+      gap: 77px;
+    }
+  }
+
+  &__image-wrapper {
+    @include u.breakpoint(medium) {
+      width: 46.43%;
+    }
+
+    @include u.breakpoint(large) {
+      width: 53.54%;
+    }
+  }
+
+  &__image {
+    margin-block-end: 40px;
+    width: 100%;
+
+    @include u.breakpoint(medium) {
+      margin-block-end: 0;
+    }
+  }
+
+  &__content {
+    @include u.breakpoint(medium) {
+      width: 49.11%;
+    }
+
+    @include u.breakpoint(large) {
+      width: 40.66%;
+      max-width: 540px;
+    }
+  }
+
+  &__intro {
+    margin-block-end: 40px;
+  }
+
+  &__info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 80px;
+  }
+
+  &__info-wrapper {
+    @include u.breakpoint(medium) {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  &__subheading {
+    margin-block-end: 8px;
+
+    @include u.breakpoint(medium) {
+      padding-top: 3px;
+      min-width: 99px;
+      max-width: 99px;
+      padding-top: 5px;
+    }
+
+    @include u.breakpoint(medium) {
+      padding-top: 5px;
+    }
+  }
+}
