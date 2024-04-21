@@ -10,11 +10,6 @@ h2 {
 
 h1 {
   font-size: clamp(2rem, 1.4036259541984732rem + 2.544529262086514vw, 2.625rem);
-  // letter-spacing: clamp(
-  //   -0.02rem,
-  //   -0.011011450381679392rem + 0.13231552162849874vw,
-  //   0.0525rem
-  // );
 }
 
 h2 {
@@ -69,6 +64,7 @@ a:active {
 }
 
 .text-heading-primary {
+  font-family: u.$fontHeader;
   font-size: clamp(2rem, 1.4036259541984732rem + 2.544529262086514vw, 2.625rem);
   font-weight: 400;
   line-height: 1.2;
@@ -80,6 +76,7 @@ a:active {
 }
 
 .text-heading-secondary {
+  font-family: u.$fontHeader;
   font-size: clamp(
     0.75rem,
     0.571087786259542rem + 0.7633587786259542vw,
@@ -97,4 +94,15 @@ a:active {
   @include u.breakpoint(medium) {
     line-height: 1.2;
   }
+}
+
+.text-figcaption {
+  font-family: u.$fontBody;
+  font-size: clamp(
+    0.75rem,
+    0.6071428571428572rem + 0.2976190476190476vw,
+    0.875rem
+  );
+  font-weight: 300;
+  line-height: 1.5;
 }

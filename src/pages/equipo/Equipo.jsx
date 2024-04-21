@@ -1,5 +1,5 @@
 import Layout from "../../layouts/layout/Layout";
-import Carousel from "../../components/Carousel";
+import CarouselEquipo from "./CarouselEquipo";
 
 import "./equipo.scss";
 
@@ -13,7 +13,7 @@ const Equipo = () => {
             The Salicutti winegrowing estate, owned by legendary Munich
             restaurateurs Felix and Sabine Eichbauer of Tantris fame.
           </p>
-          <Carousel />
+          <CarouselEquipo />
         </div>
       </Layout>
     </>

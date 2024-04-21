@@ -1,10 +1,35 @@
 import Layout from "../../layouts/layout/Layout";
-import DondeComprarInfo from "./DondeComprarInfo";
 import imageDondeComprar from "../../assets/images/Ilustración_Pintó-Verdot3 1.png";
+import { importerItems } from "../../data/data";
 
 import "./dondeComprar.scss";
 
 const DondeComprar = () => {
+  const renderImporterItem = (item) => (
+    <div className="dondeComprar__info-wrapper" key={item.id}>
+      <h2 className="dondeComprar__subheading text-heading-secondary">
+        {item.country}
+      </h2>
+      <div>
+        <p className="dondeComprar__company">{item.company}</p>
+        <a className="dondeComprar__website text-body" href={item.website}>
+          {item.website}
+        </a>
+        <address className="dondeComprar__address text-body">
+          {item.address}
+        </address>
+        <a className="dondeComprar__instagram text-body" href={item.instagram}>
+          {`@${
+            item.instagram
+              .replace(/https?:\/\//, "")
+              .replace(/\/$/, "")
+              .split(".com")[0]
+          }`}
+        </a>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <Layout>
@@ -30,48 +55,7 @@ const DondeComprar = () => {
                 volumes we cannot guarantee all wines will always be available.
               </p>
               <div className="dondeComprar__info-container">
-                <DondeComprarInfo
-                  country="Argentina"
-                  company="Brazos Wine Imports"
-                  website="http://www.brazoswine.com"
-                  address="2 Prince St Suite 4309, Brooklyn, NY 11201, United States"
-                  instagram="https://www.instagram.com/brazoswine"
-                />
-                <DondeComprarInfo
-                  country="USA"
-                  company="Brazos Wine Imports"
-                  website="http://www.brazoswine.com"
-                  address="2 Prince St Suite 4309, Brooklyn, NY 11201, United States"
-                  instagram="https://www.instagram.com/brazoswine"
-                />
-                <DondeComprarInfo
-                  country="Spain"
-                  company="Brazos Wine Imports"
-                  website="http://www.brazoswine.com"
-                  address="2 Prince St Suite 4309, Brooklyn, NY 11201, United States"
-                  instagram="https://www.instagram.com/brazoswine"
-                />
-                <DondeComprarInfo
-                  country="Canada"
-                  company="Brazos Wine Imports"
-                  website="http://www.brazoswine.com"
-                  address="2 Prince St Suite 4309, Brooklyn, NY 11201, United States"
-                  instagram="https://www.instagram.com/brazoswine"
-                />
-                <DondeComprarInfo
-                  country="Peru"
-                  company="Brazos Wine Imports"
-                  website="http://www.brazoswine.com"
-                  address="2 Prince St Suite 4309, Brooklyn, NY 11201, United States"
-                  instagram="https://www.instagram.com/brazoswine"
-                />
-                <DondeComprarInfo
-                  country="Japan"
-                  company="Brazos Wine Imports"
-                  website="http://www.brazoswine.com"
-                  address="2 Prince St Suite 4309, Brooklyn, NY 11201, United States"
-                  instagram="https://www.instagram.com/brazoswine"
-                />
+                {importerItems.map((item) => renderImporterItem(item))}
               </div>
             </div>
           </div>

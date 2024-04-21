@@ -1,14 +1,14 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
-import "./carousel.scss";
+import "./carouselEquipo.scss";
 
-import alejandro from "../assets/alejandro.jpg";
-import celina from "../assets/celina.jpg";
-import sebas from "../assets/sebas.jpg";
-import jony from "../assets/jony.jpg";
-import diego from "../assets/diego.jpg";
-import emi from "../assets/emi.jpg";
-import arrowLeft from "../assets/arrow-left.svg";
-import arrowRight from "../assets/arrow-right.svg";
+import alejandro from "../../assets/alejandro.jpg";
+import celina from "../../assets/celina.jpg";
+import sebas from "../../assets/sebas.jpg";
+import jony from "../../assets/jony.jpg";
+import diego from "../../assets/diego.jpg";
+import emi from "../../assets/emi.jpg";
+import arrowLeft from "../../assets/arrow-left.svg";
+import arrowRight from "../../assets/arrow-right.svg";
 
 const slides = [
   { title: "Alejandro", job: "owner", img: alejandro },
@@ -21,7 +21,7 @@ const slides = [
 
 const slideGap = 24;
 
-const Carousel = () => {
+const CarouselEquipo = () => {
   const sliderRef = useRef();
 
   const [sliderPosition, setSliderPosition] = useState(0);
@@ -30,8 +30,10 @@ const Carousel = () => {
   // responsive functionality (includes slideWidth state above)
   useEffect(() => {
     const updateSlideWidth = () => {
-      if (window.innerWidth <= 768) {
-        setSlideWidth(375);
+      if (window.innerWidth <= 700) {
+        setSlideWidth(311);
+      } else if (window.innerWidth >= 700 && window.innerWidth <= 900) {
+        setSlideWidth(327);
       } else {
         setSlideWidth(421);
       }
@@ -45,6 +47,8 @@ const Carousel = () => {
       window.removeEventListener("resize", updateSlideWidth);
     };
   }, []);
+
+  console.log(slideWidth);
 
   const currentSlide = useMemo(() => {
     return Math.round(sliderPosition / (slideWidth + slideGap));
@@ -78,11 +82,11 @@ const Carousel = () => {
 
   return (
     <>
-      {/* <div className="carousel__navigation">
+      <div className="equipo-carousel__navigation">
         <button
           disabled={currentSlide === 0}
           onClick={() => goToPreviousSlide()}
-          className="carousel__button"
+          className="equipo-carousel__button"
         >
           <span className="sr-only">Previous</span>{" "}
           <img src={arrowLeft} alt="Navigate left in carousel" />
@@ -90,31 +94,43 @@ const Carousel = () => {
         <button
           disabled={scrolledToEndOfSlider || currentSlide === slides.length}
           onClick={() => goToNextSlide()}
-          className="carousel__button"
+          className="equipo-carousel__button"
         >
           <span className="sr-only">Right</span>{" "}
-          <img src={arrowRight} alt="Navigate right in carousel" />
+          <svg
+            width="7"
+            height="10"
+            viewBox="0 0 7 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.000541301 1.16667L3.83381 5L0.000541636 8.83333L1.16719 10L6.1671 5L1.16719 1.87423e-07L0.000541301 1.16667Z"
+              fill="#1D1D1B"
+            />
+          </svg>
+          {/* <img src={arrowRight} alt="Navigate right in carousel" /> */}
         </button>
-      </div> */}
+      </div>
       <ul
         ref={sliderRef}
         onScroll={(e) => {
           setSliderPosition(e.currentTarget.scrollLeft);
         }}
-        className="carousel"
+        className="equipo-carousel"
       >
         {slides.map((slide) => (
-          <li className="carousel__item" key={slide.title}>
+          <li className="equipo-carousel__item" key={slide.title}>
             <div className="slide-center">
-              <div className="carousel__image-wrapper">
+              <div className="equipo-carousel__image-wrapper">
                 <img
-                  className="carousel__image"
+                  className="equipo-carousel__image"
                   src={slide.img}
                   alt={`${slide.title}, ${slide.job}`}
                 />
-                <div className="slide__captions">
-                  <h2>{slide.title}</h2>
-                  <h3>{slide.job}</h3>
+                <div className="equipo-carousel__slide-captions">
+                  <h2 className="text-heading-primary">{slide.title}</h2>
+                  <h3 className="text-heading-secondary">{slide.job}</h3>
                 </div>
               </div>
             </div>
@@ -125,4 +141,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default CarouselEquipo;
