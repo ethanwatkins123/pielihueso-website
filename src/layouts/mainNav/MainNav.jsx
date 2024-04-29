@@ -2,61 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import { menuSlide } from "./menuSlide";
-import NavLink from "./NavLink";
-import { Link } from "react-router-dom";
+import NavigationLink from "./NavigationLink";
+import { NavLink } from "react-router-dom";
 
-import "./mainNav.scss";
-
-const mobileNavItems = [
-  {
-    title: "Vinos",
-    to: "/vinos",
-  },
-  {
-    title: "Nuestra historia",
-    // check this
-    to: "/nuestra-historia",
-  },
-  {
-    title: "La finca",
-    to: "/la-finca",
-  },
-  {
-    title: "Equipo",
-    to: "/equipo",
-  },
-  {
-    title: "Donde cómprar",
-    to: "/donde-comprar",
-  },
-  {
-    title: "FAQ",
-    to: "/faq",
-  },
-  {
-    title: "Contacto",
-    to: "/contacto",
-  },
-];
-
-const desktopNavItems = [
-  {
-    title: "Vinos",
-    to: "/vinos",
-  },
-  {
-    title: "Nuestra historia",
-    to: "/nuestra-historia",
-  },
-  {
-    title: "La finca",
-    to: "/la-finca",
-  },
-  {
-    title: "Equipo",
-    to: "/equipo",
-  },
-];
+import { mobileNavItems, desktopNavItems } from "../../constants";
 
 import "./mainNav.scss";
 
@@ -131,11 +80,11 @@ const MainNav = () => {
             {/* <div className="body"> */}
             <ul className="nav">
               {mobileNavItems.map((item, index) => (
-                <NavLink
+                <NavigationLink
                   className="link"
                   key={index}
                   data={{ ...item, index }}
-                ></NavLink>
+                ></NavigationLink>
               ))}
             </ul>
             {/* </div> */}
@@ -148,9 +97,15 @@ const MainNav = () => {
             <ul className="nav">
               {desktopNavItems.map((item, index) => (
                 <li key={index}>
-                  <Link className="link" to={item.to}>
+                  <NavLink
+                    className="link"
+                    to={item.to}
+                    style={({ isActive }) => ({
+                      color: isActive ? "var(--clr-orange)" : "",
+                    })}
+                  >
                     {item.title}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>

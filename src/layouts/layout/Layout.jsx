@@ -7,9 +7,16 @@ import "./layout.scss";
 import logo from "../../assets/images/Logos and Icons/04.2024-WebPielihueso-Img-Logo.svg";
 import iconInstagram from "../../assets/images/Logos and Icons/04.2024-WebPielihueso-Img-IGicon.svg";
 
-const Layout = ({ children }) => {
+const Layout = ({
+  children,
+  isColoredPage,
+  cursorStyle,
+  handleClick,
+  onMouseMove,
+  onMouseLeave,
+}) => {
   return (
-    <div className="page-container">
+    <div className={`page-container ${isColoredPage ? "colored-page" : ""}`}>
       <header className="header">
         <Link to="/">
           <img className="header__logo" src={logo} alt="Pielihueso Home" />
@@ -17,7 +24,20 @@ const Layout = ({ children }) => {
         <MainNav className="header__nav" />
       </header>
 
-      <main className="main">{children}</main>
+      <div
+        className={`main ${
+          cursorStyle === "custom-cursor"
+            ? "custom-cursor"
+            : cursorStyle === "custom-cursor-left"
+            ? "custom-cursor-left"
+            : ""
+        }`}
+        onMouseMove={onMouseMove}
+        onMouseLeave={onMouseLeave}
+        onClick={handleClick}
+      >
+        {children}
+      </div>
 
       <footer className="footer">
         <BottomNav />

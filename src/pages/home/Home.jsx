@@ -1,20 +1,82 @@
+import { useState, useEffect } from "react";
 import Layout from "../../layouts/layout/Layout";
-
-import testImageDesktop from "../../assets/images/Home/Desktop/04.2024-WebPielihueso-Img-Home-Desktop-1.jpg";
-import testImageTablet from "../../assets/images/Home/Tablet/04.2024-WebPielihueso-Img-Home-Tablet-1.jpg";
-import testImageMobile from "../../assets/images/Home/Mobile/04.2024-WebPielihueso-Img-Home-Mobile-1.jpg";
 
 import "./home.scss";
 
+import { homeImages } from "../../constants";
+
 const Home = () => {
+  const [imageNumber, setImageNumber] = useState(0);
+  const [cursorStyle, setCursorStyle] = useState("default");
+
+  const next = () => {
+    setImageNumber((imageNumber + 1) % homeImages.length);
+  };
+
+  const previous = () => {
+    setImageNumber((imageNumber - 1 + homeImages.length) % homeImages.length);
+  };
+
+  const handleClick = (e) => {
+    const containerWidth = document.querySelector(".main").clientWidth;
+
+    const midpoint = containerWidth / 2;
+
+    if (e.clientX < midpoint) {
+      previous();
+    } else {
+      next();
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    const containerWidth = document.querySelector(".main").clientWidth;
+    const midpoint = containerWidth / 2;
+
+    if (e.clientX < midpoint) {
+      setCursorStyle("custom-cursor-left");
+    } else {
+      setCursorStyle("custom-cursor");
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setCursorStyle("default");
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowLeft") {
+      previous();
+    } else if (e.key === "ArrowRight") {
+      next();
+    }
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(next, 2500);
+    return () => clearInterval(intervalId);
+  }, [imageNumber]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [imageNumber]);
+
   return (
     <>
-      <Layout>
+      <Layout
+        handleClick={handleClick}
+        cursorStyle={cursorStyle}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
         <img
           className="home__image"
-          src={testImageMobile}
-          alt=""
-          srcSet={`${testImageMobile} 750w, ${testImageTablet} 1728w, ${testImageDesktop} 2880w`}
+          src={homeImages[imageNumber].imgMobile}
+          alt={homeImages[imageNumber].altText}
+          srcSet={`${homeImages[imageNumber].imgMobile} 750w, ${homeImages[imageNumber].imgTablet} 1728w, ${homeImages[imageNumber].imgDesktop} 2880w`}
         />
       </Layout>
     </>

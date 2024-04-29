@@ -30,15 +30,22 @@
   }
 
   &__image-wrapper {
-    width: 311px;
     position: relative;
+  }
+
+  &__image {
+    width: 300px;
+    object-fit: cover;
+    max-height: 431px;
 
     @include u.breakpoint(medium) {
       width: 327px;
+      max-height: 453px;
     }
 
-    @include u.breakpoint(xlarge) {
+    @include u.breakpoint(large) {
       width: 421px;
+      max-height: 583px;
     }
   }
 
@@ -52,7 +59,7 @@
   }
 
   &__button {
-    width: 32px;
+    width: 50px;
     height: 32px;
     display: flex;
     justify-content: center;
@@ -63,8 +70,12 @@
     }
 
     img {
-      width: 0.625rem;
+      width: 100%;
       position: relative;
+
+      svg {
+        fill: black;
+      }
     }
   }
 
@@ -96,16 +107,3 @@
 // .slide-center {
 //   transform: translateX(calc(max(1200px, 100vw) / 2 - calc(1200px / 2)));
 // }
-
-// hidden on screen reader
-.sr-only {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}

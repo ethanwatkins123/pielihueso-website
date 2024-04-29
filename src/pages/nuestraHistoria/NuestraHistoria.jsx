@@ -1,12 +1,17 @@
 import Layout from "../../layouts/layout/Layout";
+import Carousel from "../../components/Carousel";
+
 import "./nuestraHistoria.scss";
 
-import testImageDesktop from "../../assets/images/Home/Desktop/04.2024-WebPielihueso-Img-Home-Desktop-1.jpg";
-import testImageTablet from "../../assets/images/Home/Tablet/04.2024-WebPielihueso-Img-Home-Tablet-1.jpg";
-import testImageMobile from "../../assets/images/Home/Mobile/04.2024-WebPielihueso-Img-Home-Mobile-1.jpg";
-import ImageNuestraHistoria from "../../assets/images/imageNuestraHistoria.jpg";
+import {
+  historiaPrimaryMobileImg,
+  historiaPrimaryTabletImg,
+  historiaPrimaryDesktopImg,
+  historiaSecondaryMobileImg,
+  historiaSecondaryDesktopImg,
+} from "../../utils";
 
-import { historyItems } from "../../data/data";
+import { historyItems, slidesNuestraHistoria } from "../../constants";
 
 const NuestraHistoria = () => {
   const renderHistoryItem = (year, text) => (
@@ -22,20 +27,23 @@ const NuestraHistoria = () => {
     <>
       <Layout>
         <div className="historia">
-          <h1 className="historia__heading text-heading-primary">
-            Nuestra Historia
-          </h1>
-          <p className="historia__intro text-intro">
-            The Salicutti winegrowing estate, owned by legendary Munich
-            restaurateurs Felix and Sabine Eichbauer of Tantris fame, is a place
-            of untamed beauty located in the southeastern corner of Montalcino.
-          </p>
-          <img
-            className="historia__image-primary"
-            src={testImageMobile}
-            alt=""
-            srcSet={`${testImageMobile} 750w, ${testImageTablet} 1728w, ${testImageDesktop} 2880w`}
-          />
+          <main>
+            <h1 className="historia__heading text-heading-primary">
+              Nuestra Historia
+            </h1>
+            <p className="historia__intro text-intro">
+              The Salicutti winegrowing estate, owned by legendary Munich
+              restaurateurs Felix and Sabine Eichbauer of Tantris fame, is a
+              place of untamed beauty located in the southeastern corner of
+              Montalcino.
+            </p>
+            <img
+              className="historia__image-primary"
+              src={historiaPrimaryMobileImg}
+              alt=""
+              srcSet={`${historiaPrimaryMobileImg} 750w, ${historiaPrimaryTabletImg} 1728w, ${historiaPrimaryDesktopImg} 2880w`}
+            />
+          </main>
           <section className="historia__history">
             <div className="historia__years">
               {historyItems
@@ -44,9 +52,10 @@ const NuestraHistoria = () => {
 
               <figure className="historia__figure-mobile">
                 <img
-                  src={ImageNuestraHistoria}
+                  src={historiaSecondaryMobileImg}
                   alt="Primer ilustración para el primer vino x @bartnetwork"
                 />
+
                 <figcaption className="text-figcaption">
                   Primer ilustración para el primer vino x @bartnetwork
                 </figcaption>
@@ -57,7 +66,7 @@ const NuestraHistoria = () => {
             </div>
             <figure className="historia__figure">
               <img
-                src={ImageNuestraHistoria}
+                src={historiaSecondaryDesktopImg}
                 alt="Primer ilustración para el primer vino x @bartnetwork"
               />
               <figcaption className="text-figcaption">
@@ -65,7 +74,9 @@ const NuestraHistoria = () => {
               </figcaption>
             </figure>
           </section>
-          {/* insert carousel section here */}
+          <section className="historia__carousel">
+            <Carousel carouselData={slidesNuestraHistoria} />
+          </section>
           <section className="historia__history-continued">
             {historyItems
               .slice(5)

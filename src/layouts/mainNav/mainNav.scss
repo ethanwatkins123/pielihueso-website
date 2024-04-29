@@ -59,20 +59,21 @@
 
 // nav menu styles
 .menu {
-  // height: calc(100% - 9.1% - 6.9%); // make variables?
   position: fixed;
   right: 16px;
-  top: 9.1%; // make variable?
+  top: 62px; // make variable?
   width: calc(100% - 32px);
   z-index: 1;
+  // outline: solid blue;
 
   .nav {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    gap: 6px;
+    height: calc(100vh - 62px - 46px);
+    gap: 5px;
 
     @include u.breakpoint(medium) {
+      height: auto;
       flex-direction: row;
       gap: 32px;
     }
@@ -85,6 +86,11 @@
   }
 }
 
+.list-item {
+  // outline: solid red;
+  flex-grow: 1;
+}
+
 .link {
   font-size: clamp(
     1.125rem,
@@ -92,7 +98,7 @@
     1.5rem
   );
 
-  transition: color 0.25s;
+  transition: color 0.3s;
   display: block;
 
   &:hover {
@@ -102,4 +108,12 @@
       color: var(--clr-orange);
     }
   }
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active-link {
+  color: red;
 }

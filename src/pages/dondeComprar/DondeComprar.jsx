@@ -1,8 +1,10 @@
 import Layout from "../../layouts/layout/Layout";
-import imageDondeComprar from "../../assets/images/Ilustración_Pintó-Verdot3 1.png";
-import { importerItems } from "../../data/data";
 
 import "./dondeComprar.scss";
+
+import { importerItems } from "../../constants";
+
+import { comprarMobilePrimaryImg, comprarDesktopPrimaryImg } from "../../utils";
 
 const DondeComprar = () => {
   const renderImporterItem = (item) => (
@@ -32,19 +34,19 @@ const DondeComprar = () => {
 
   return (
     <>
-      <Layout>
+      <Layout isColoredPage={true}>
         <div className="dondeComprar">
           <h1 className="dondeComprar__heading text-heading-primary">
             Dónde comprar
           </h1>
 
           <div className="dondeComprar__container">
-            {/* add srcset */}
             <div className="dondeComprar__image-wrapper">
               <img
                 className="dondeComprar__image"
-                src={imageDondeComprar}
+                src={comprarMobilePrimaryImg}
                 alt=""
+                srcSet={`${comprarMobilePrimaryImg} 750w, ${comprarDesktopPrimaryImg} 1420w`}
               />
             </div>
 

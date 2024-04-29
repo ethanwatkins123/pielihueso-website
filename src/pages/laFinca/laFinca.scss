@@ -1,0 +1,150 @@
+@use "../../styles/util/" as u;
+
+.finca {
+  width: 100%;
+  height: 100%;
+  padding: 32px 0 70px 24px;
+  overflow-x: auto;
+
+  @include u.breakpoint(medium) {
+    padding: 48px 0 104px 26px;
+  }
+
+  @include u.breakpoint(large) {
+    padding: 48px 0 80px 31.5px;
+  }
+
+  &__heading {
+    margin-block-end: 24px;
+
+    @include u.breakpoint(medium) {
+      margin-block-end: 32px;
+    }
+  }
+
+  &__main-container {
+    padding-right: 24px;
+    margin-block-end: 80px;
+
+    @include u.breakpoint(medium) {
+      padding-right: 26px;
+      margin-block-end: 90px;
+    }
+
+    @include u.breakpoint(large) {
+      display: flex;
+      margin-block-end: 106px;
+      gap: 12.6%;
+      //   outline: solid red;
+      max-width: 1093px;
+    }
+  }
+
+  &__image-desktop-wrapper {
+    width: 39%;
+  }
+
+  &__image-desktop {
+    display: none;
+
+    @include u.breakpoint(large) {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__intro {
+    margin-block-end: 40px;
+
+    @include u.breakpoint(medium) {
+      margin-block-end: 64px;
+      max-width: 463px;
+    }
+
+    @include u.breakpoint(large) {
+      margin-block-end: 56px;
+      max-width: 534px;
+    }
+  }
+
+  &__sub-container {
+    display: flex;
+    flex-direction: column;
+
+    @include u.breakpoint(medium) {
+    }
+
+    @include u.breakpoint(large) {
+      display: block;
+      width: 48.4%;
+      //   max-width: 529px;
+    }
+  }
+
+  &__details-container {
+    @include u.breakpoint(medium) {
+      display: flex;
+      justify-content: space-between;
+      gap: 47px;
+    }
+  }
+
+  &__image-mobile {
+    width: 100%;
+    object-fit: cover;
+    margin-block-end: 48px;
+
+    @include u.breakpoint(medium) {
+      max-height: 387px;
+      margin-block-end: 80px;
+      width: 39%;
+    }
+
+    @include u.breakpoint(large) {
+      display: none;
+    }
+  }
+
+  &__details {
+    width: 100%;
+    // width: 54%;
+  }
+
+  &__attribute {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include u.breakpoint(medium) {
+      gap: 53px;
+    }
+
+    @include u.breakpoint(large) {
+      gap: 40px;
+    }
+  }
+
+  &__info-wrapper {
+    display: flex;
+    gap: 8px;
+
+    @include u.breakpoint(medium) {
+      gap: 28px;
+    }
+  }
+
+  &__subheading {
+    margin-block-end: 8px;
+    min-width: 68px;
+
+    @include u.breakpoint(medium) {
+      min-width: 74px;
+      padding-top: 5px;
+    }
+
+    @include u.breakpoint(large) {
+      min-width: 85px;
+      padding-top: 5px;
+    }
+  }
+}

@@ -48,6 +48,21 @@ a {
   font-family: u.$fontHeader;
 }
 
+// hidden on screen reader
+.sr-only {
+  // position: absolute !important;
+  display: block;
+  position: static;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
@@ -62,4 +77,10 @@ a {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+// Hover style for links on coloured pages - where else can I put this?
+.colored-page .footer__link:hover,
+.colored-page .link:hover {
+  color: var(--clr-offwhite);
 }

@@ -1,21 +1,28 @@
 import Layout from "../../layouts/layout/Layout";
 import ContactoInfo from "./ContactoInfo";
-// replace
-import imageContacto from "../../assets/images/03 2.png";
 
 import "./contacto.scss";
+
+import {
+  contactoMobilePrimaryImg,
+  contactoDesktopPrimaryImg,
+} from "../../utils";
 
 const Contacto = () => {
   return (
     <>
-      <Layout>
+      <Layout isColoredPage={true}>
         <div className="contacto">
           <h1 className="contacto__heading text-heading-primary">Contacto</h1>
 
           <div className="contacto__container">
-            {/* add srcset */}
             <div className="contacto__image-wrapper">
-              <img className="contacto__image" src={imageContacto} alt="" />
+              <img
+                className="contacto__image"
+                src={contactoMobilePrimaryImg}
+                alt=""
+                srcSet={`${contactoMobilePrimaryImg} 750w, ${contactoDesktopPrimaryImg} 1420w`}
+              />
             </div>
 
             <div className="contacto__content">
