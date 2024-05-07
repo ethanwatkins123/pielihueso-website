@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import { iconExpandImg, iconCloseImg } from "../utils";
-
 const AccordionPanel = ({ question, answer }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -17,32 +15,6 @@ const AccordionPanel = ({ question, answer }) => {
           aria-expanded={isExpanded}
         >
           <span id="panel1-title ">{question}</span>
-
-          {/* <svg
-            aria-hidden="true"
-            className={`faq__accordion-icon ${isExpanded ? "open" : ""}`}
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-          >
-            <rect
-              className="horizontal"
-              y="7"
-              width="16"
-              height="2"
-              fill="#1D1D1B"
-            />
-            <rect
-              className="vertical"
-              x="9"
-              width="16"
-              height="2"
-              transform="rotate(90 9 0)"
-              fill="#1D1D1B"
-            />
-          </svg> */}
 
           <svg
             className={`faq__accordion-icon ${isExpanded ? "open" : ""}`}

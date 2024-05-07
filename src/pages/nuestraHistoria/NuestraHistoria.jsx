@@ -1,6 +1,7 @@
+import { useTranslation } from "react-i18next";
 import Layout from "../../layouts/layout/Layout";
-import Carousel from "../../components/Carousel";
-
+import Curve from "../../layouts/curveTransition/Curve";
+import InfiniteScrollAnim from "../../components/infiniteScrollAnim/InfiniteScrollAnim";
 import "./nuestraHistoria.scss";
 
 import {
@@ -13,78 +14,76 @@ import {
 
 import { historyItems, slidesNuestraHistoria } from "../../constants";
 
-const NuestraHistoria = () => {
-  const renderHistoryItem = (year, text) => (
-    <div className="historia__year" key={year}>
-      <time className="text-heading-secondary" dateTime={year}>
-        {year}
-      </time>
-      <p className="text-body">{text}</p>
-    </div>
-  );
+const HistoryItem = ({ year, text }) => {
+  const { t } = useTranslation("historia");
 
   return (
-    <>
+    <article className="historia__year">
+      <time className="text-heading-secondary">{year}</time>
+      <p className="text-body">{t(text)}</p>
+    </article>
+  );
+};
+
+const NuestraHistoria = () => {
+  const { t } = useTranslation("historia");
+
+  return (
+    <Curve>
       <Layout>
-        <div className="historia">
-          <main>
+        <section className="historia">
+          <header>
             <h1 className="historia__heading text-heading-primary">
-              Nuestra Historia
+              {t("title")}
             </h1>
-            <p className="historia__intro text-intro">
-              The Salicutti winegrowing estate, owned by legendary Munich
-              restaurateurs Felix and Sabine Eichbauer of Tantris fame, is a
-              place of untamed beauty located in the southeastern corner of
-              Montalcino.
-            </p>
+            <p className="historia__intro text-intro">{t("intro")}</p>
             <img
               className="historia__image-primary"
               src={historiaPrimaryMobileImg}
-              alt=""
+              alt={t("altTextMainImg")}
               srcSet={`${historiaPrimaryMobileImg} 750w, ${historiaPrimaryTabletImg} 1728w, ${historiaPrimaryDesktopImg} 2880w`}
             />
-          </main>
+          </header>
           <section className="historia__history">
             <div className="historia__years">
-              {historyItems
-                .slice(0, 2)
-                .map((item) => renderHistoryItem(item.year, item.text))}
-
+              {historyItems.slice(0, 2).map((item) => (
+                <HistoryItem key={item.year} {...item} />
+              ))}
               <figure className="historia__figure-mobile">
                 <img
                   src={historiaSecondaryMobileImg}
-                  alt="Primer ilustración para el primer vino x @bartnetwork"
+                  alt={t("altTextSecondaryImg")}
                 />
-
                 <figcaption className="text-figcaption">
-                  Primer ilustración para el primer vino x @bartnetwork
+                  {t("altTextSecondaryImg")}
                 </figcaption>
               </figure>
-              {historyItems
-                .slice(2, 5)
-                .map((item) => renderHistoryItem(item.year, item.text))}
+              {historyItems.slice(2, 5).map((item) => (
+                <HistoryItem key={item.year} {...item} />
+              ))}
             </div>
             <figure className="historia__figure">
               <img
                 src={historiaSecondaryDesktopImg}
-                alt="Primer ilustración para el primer vino x @bartnetwork"
+                alt={t("altTextSecondaryImg")}
               />
               <figcaption className="text-figcaption">
-                Primer ilustración para el primer vino x @bartnetwork
+                {t("altTextSecondaryImg")}
               </figcaption>
             </figure>
           </section>
+
           <section className="historia__carousel">
-            <Carousel carouselData={slidesNuestraHistoria} />
+            <InfiniteScrollAnim items={slidesNuestraHistoria} speed={"slow"} />
           </section>
           <section className="historia__history-continued">
-            {historyItems
-              .slice(5)
-              .map((item) => renderHistoryItem(item.year, item.text))}
+            {historyItems.slice(5).map((item) => (
+              <HistoryItem key={item.year} {...item} />
+            ))}
           </section>
-        </div>
+        </section>
       </Layout>
-    </>
+    </Curve>
   );
 };
 

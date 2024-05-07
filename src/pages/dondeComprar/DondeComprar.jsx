@@ -1,16 +1,17 @@
+import { useTranslation } from "react-i18next";
 import Layout from "../../layouts/layout/Layout";
-
+import Curve from "../../layouts/curveTransition/Curve";
 import "./dondeComprar.scss";
-
 import { importerItems } from "../../constants";
-
 import { comprarMobilePrimaryImg, comprarDesktopPrimaryImg } from "../../utils";
 
-const DondeComprar = () => {
-  const renderImporterItem = (item) => (
-    <div className="dondeComprar__info-wrapper" key={item.id}>
+const ImporterItem = ({ item }) => {
+  const { t } = useTranslation("comprar");
+
+  return (
+    <article className="dondeComprar__info-wrapper">
       <h2 className="dondeComprar__subheading text-heading-secondary">
-        {item.country}
+        {t(item.country)}
       </h2>
       <div>
         <p className="dondeComprar__company">{item.company}</p>
@@ -21,49 +22,43 @@ const DondeComprar = () => {
           {item.address}
         </address>
         <a className="dondeComprar__instagram text-body" href={item.instagram}>
-          {`@${
-            item.instagram
-              .replace(/https?:\/\//, "")
-              .replace(/\/$/, "")
-              .split(".com")[0]
-          }`}
+          @{new URL(item.instagram).hostname.replace("www.", "")}
         </a>
       </div>
-    </div>
+    </article>
   );
+};
 
+const DondeComprar = () => {
+  const { t } = useTranslation("comprar");
   return (
-    <>
+    <Curve>
       <Layout isColoredPage={true}>
-        <div className="dondeComprar">
+        <section className="dondeComprar">
           <h1 className="dondeComprar__heading text-heading-primary">
-            Dónde comprar
+            {t("title")}
           </h1>
-
           <div className="dondeComprar__container">
             <div className="dondeComprar__image-wrapper">
               <img
                 className="dondeComprar__image"
                 src={comprarMobilePrimaryImg}
-                alt=""
+                alt="Pielihueso flag logo"
                 srcSet={`${comprarMobilePrimaryImg} 750w, ${comprarDesktopPrimaryImg} 1420w`}
               />
             </div>
-
             <div className="dondeComprar__content">
-              <p className="dondeComprar__intro text-intro">
-                Our wines are available in Argentina and are distributed
-                exclusively by xxxxxx. Due to our wine only being made in small
-                volumes we cannot guarantee all wines will always be available.
-              </p>
-              <div className="dondeComprar__info-container">
-                {importerItems.map((item) => renderImporterItem(item))}
-              </div>
+              <p className="dondeComprar__intro text-intro">{t("intro")}</p>
+              <section className="dondeComprar__info-container">
+                {importerItems.map((item) => (
+                  <ImporterItem key={item.id} item={item} />
+                ))}
+              </section>
             </div>
           </div>
-        </div>
+        </section>
       </Layout>
-    </>
+    </Curve>
   );
 };
 

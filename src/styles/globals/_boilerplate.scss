@@ -33,6 +33,7 @@ body {
   color: var(--clr-black);
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 img,

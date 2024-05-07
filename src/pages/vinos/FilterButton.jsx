@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 
 const FilterButton = ({ onClick, label, isActive, indicator }) => {
@@ -20,7 +19,7 @@ const FilterButton = ({ onClick, label, isActive, indicator }) => {
         />
       )}
 
-      {/* {isActive && <span className="sr-only">Selected: {label}</span>} */}
+      {isActive && <span className="sr-only">Selected: {label}</span>}
     </button>
   );
 };

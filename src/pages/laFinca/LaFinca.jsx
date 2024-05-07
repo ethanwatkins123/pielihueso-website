@@ -1,64 +1,70 @@
+import { useTranslation } from "react-i18next";
 import Layout from "../../layouts/layout/Layout";
-import Carousel from "../../components/Carousel";
-
+import Curve from "../../layouts/curveTransition/Curve";
+import InfiniteScrollAnim from "../../components/infiniteScrollAnim/InfiniteScrollAnim";
 import "./laFinca.scss";
-
 import { fincaPrimaryMobileImg, fincaPrimaryDesktopImg } from "../../utils";
-
 import { fincaItems, slidesLaFinca } from "../../constants";
 
-const LaFinca = () => {
-  const renderFincaItem = (item) => (
-    <div className="finca__info-wrapper" key={item.id}>
-      <h2 className="finca__subheading text-heading-secondary">
-        {item.attribute}
-      </h2>
-      <p className="finca__detail">{item.detail}</p>
-    </div>
-  );
+const FincaItem = ({ attribute, detail }) => {
+  const { t } = useTranslation("finca");
 
   return (
-    <>
+    <article className="finca__info-wrapper">
+      <h2 className="finca__subheading text-heading-secondary">
+        {t(attribute)}
+      </h2>
+      <p className="finca__detail">{t(detail)}</p>
+    </article>
+  );
+};
+
+const LaFinca = () => {
+  const { t } = useTranslation("finca");
+
+  return (
+    <Curve>
       <Layout>
-        <div className="finca">
-          <h1 className="finca__heading text-heading-primary">La Finca</h1>
+        <section className="finca">
+          <h1 className="finca__heading text-heading-primary">{t("title")}</h1>
           <main className="finca__main-container">
-            <div className="finca__image-desktop-wrapper">
+            <figure className="finca__image-desktop-wrapper">
               <img
                 className="finca__image-desktop"
                 src={fincaPrimaryDesktopImg}
-                alt=""
+                alt={t("altTextMainImg")}
                 srcSet={`${fincaPrimaryMobileImg} 750w, ${fincaPrimaryDesktopImg} 850w`}
                 sizes="(min-width: 700px) 50vh, 100vw"
               />
-            </div>
+            </figure>
             <div className="finca__sub-container">
-              <p className="finca__intro text-intro">
-                The Salicutti winegrowing estate, owned by legendary Munich
-                restaurateurs Felix and Sabine Eichbauer of Tantris fame, is a
-                place of untamed beauty located in the southeastern corner of
-                Montalcino.
-              </p>
-              <div className="finca__details-container">
+              <p className="finca__intro text-intro">{t("intro")}</p>
+              <section className="finca__details-container">
                 <img
                   className="finca__image-mobile"
                   src={fincaPrimaryMobileImg}
-                  alt=""
+                  alt={t("altTextMainImg")}
                 />
                 <section className="finca__details">
                   <div className="finca__attribute">
-                    {fincaItems.map((item) => renderFincaItem(item))}
+                    {fincaItems.map((item) => (
+                      <FincaItem
+                        key={item.id}
+                        attribute={item.attribute}
+                        detail={item.detail}
+                      />
+                    ))}
                   </div>
                 </section>
-              </div>
+              </section>
             </div>
           </main>
-          <section>
-            <Carousel carouselData={slidesLaFinca} />
+          <section className="finca__carousel">
+            <InfiniteScrollAnim items={slidesLaFinca} speed={"slow"} />
           </section>
-        </div>
+        </section>
       </Layout>
-    </>
+    </Curve>
   );
 };
 

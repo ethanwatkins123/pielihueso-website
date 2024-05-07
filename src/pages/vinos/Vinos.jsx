@@ -1,15 +1,15 @@
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
-
 import FilterButton from "./FilterButton";
 import WineItem from "./WineItem";
 import Layout from "../../layouts/layout/Layout";
-
+import Curve from "../../layouts/curveTransition/Curve";
 import "./vinos.scss";
-
 import { vinos } from "../../constants";
 
 const Vinos = () => {
   const [filter, setFilter] = useState("all");
+  const { t } = useTranslation("vinos");
 
   let filteredWines;
   switch (filter) {
@@ -31,39 +31,40 @@ const Vinos = () => {
     visible: { scale: 1, transition: { duration: 0.2 } },
   };
 
-  // Find index of the first 'Archive' wine (for later adding a section break between 'Current - 2024' and 'Archive' when 'All' is selected)
+  // for later adding a section break between 'Current - 2024' and 'Archive'
   const firstArchiveIndex = filteredWines.findIndex(
     (wine) => wine.filter !== "2024"
   );
 
   return (
-    <>
+    <Curve>
       <Layout>
-        <div className="vinos">
-          <h1 className="vinos__heading text-heading-primary">Vinos</h1>
-          <div className="vinos__filter-buttons" role="group">
-            <label className="sr-only">Filter Wines by Year</label>
-
+        <section className="vinos">
+          <h1 className="vinos__heading text-heading-primary">{t("title")}</h1>
+          <div
+            className="vinos__filter-buttons"
+            role="group"
+            aria-label="Filter Wines by Year"
+          >
             <FilterButton
-              label="All"
+              label={t("filter1")}
               isActive={filter === "all"}
               onClick={() => setFilter("all")}
               indicator={filter === "all" ? indicatorVariant : null}
             />
             <FilterButton
-              label="Current - 2024"
+              label={t("filter2")}
               isActive={filter === "2024"}
               onClick={() => setFilter("2024")}
               indicator={filter === "2024" ? indicatorVariant : null}
             />
             <FilterButton
-              label="Archive"
+              label={t("filter3")}
               isActive={filter === "archive"}
               onClick={() => setFilter("archive")}
               indicator={filter === "archive" ? indicatorVariant : null}
             />
           </div>
-          {/* add ARIA Live Region for announcing selected filter? */}
           <div role="status" aria-live="polite" className="sr-only">
             Selected filter: {filter}
           </div>
@@ -72,16 +73,15 @@ const Vinos = () => {
               <WineItem
                 key={wine.id}
                 wine={wine}
-                // keyCounter={keyCounter}
                 isFirstArchive={
                   filter === "all" && index === firstArchiveIndex - 1
                 }
               />
             ))}
           </ul>
-        </div>
+        </section>
       </Layout>
-    </>
+    </Curve>
   );
 };
 

@@ -1,0 +1,48 @@
+{
+  "title": "Wines",
+  "subtitle": "Past Vintages",
+
+  "filter1": "All",
+  "filter2": "Current - 2024",
+  "filter3": "Archive",
+
+  "type1": "Orange",
+  "details1": "Blend of Torrontés (40%) with Sauvignon Blanc (30%) and Chardonnay (30%).",
+  "details1Cont": "3 months of contact with its skins in stainless steel tank. Ingredients: fermented grape juice.",
+
+  "type2": "Red",
+  "details2": "50% Malbec from trellis and 50% Cabernet Sauvignon from 80-year-old arbor at our Los Parrales estate, in Los Sauces.",
+  "details2Cont": "Early harvest. Stainless steel. Native yeasts. Unfiltered.",
+
+  "type3": "Orange",
+  "details3": "Blend of Torrontés (40%) with Sauvignon Blanc (30%) and Chardonnay (30%).",
+  "details3Cont": "3 months of contact with its skins in stainless steel tank. Then it was pressed and rested for 4 months in 2 ceramic amphorae and one barrel. Ingredients: fermented grape juice. Only 1200 bottles.",
+
+  "type4": "Rosé",
+  "details4": "100% Petit Verdot rosé.",
+  "details4Cont": "Direct press, fermented and aged in stainless steel tank. Ingredients: fermented grape juice.",
+
+  "type5": "White",
+  "details5": "Blend of Torrontés (40%) with Sauvignon Blanc and Chardonnay (yes, the same as the Orange but without the skins).",
+  "details5Cont": "Made in stainless steel tank and concrete egg. Ingredients: fermented grape juice.",
+
+  "type6": "Red",
+  "details6": "50% Malbec from trellis and 50% Cabernet Sauvignon from 80-year-old arbor, from our Los Parrales estate, in Los Sauces. Early harvest.",
+  "details6Cont": "Stainless steel. Native yeasts. Unfiltered.",
+
+  "type7": "Red",
+  "details7": "This wine is a blend of Malbec and Cabernet Sauvignon from different vintages, from Los Chacayes and Los Sauces respectively.",
+  "details7Cont": "Aged in (used) barrels and it shows. Production: 2300 beloved bottles.",
+
+  "type8": "Red",
+  "details8": "This wine is a blend of Malbec and Cabernet Sauvignon from different vintages, from Los Chacayes and Los Sauces respectively.",
+  "details8Cont": "Aged in (used) barrels and it shows. Production: 2300 beloved bottles.",
+
+  "type9": "Red",
+  "details9": "This wine is many wines at the same time: 75% is made up of cabernet sauvignon from arbor in two winemakings: half made as red and half as white (direct press). The other 25% is a blend of torrontés, chardonnay and sauvignon blanc vinified with skins.",
+  "details9Cont": "It is a red wine, we believe, with electric and tropical tannins and in constant change. Stainless steel. Native yeasts. Unfiltered.",
+
+  "type10": "Red",
+  "details10": "As this wine is a blend of three different vintages, they won't let us put the year on the label. However, it is 100% petit verdot vinified in used barrels.",
+  "details10Cont": "Native yeasts. Unfiltered. Production: 1400 beloved bottles Los Chacayes, Uco Valley."
+}

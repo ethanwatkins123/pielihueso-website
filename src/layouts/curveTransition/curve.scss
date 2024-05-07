@@ -1,0 +1,46 @@
+@use "../../styles/util/" as u;
+
+.curve {
+  .svg,
+  .background {
+    width: 100vw;
+    height: calc(100vh + 240px);
+    top: -120px;
+    left: 0;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+
+    @include u.breakpoint(medium) {
+      height: calc(100vh + 600px);
+      top: -300px;
+    }
+  }
+  .background {
+    background-color: #ff6b00;
+  }
+}
+
+.transitionImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-25px, -25px);
+  z-index: 999999;
+  width: 50px;
+
+  @include u.breakpoint(medium) {
+    width: 80px;
+    transform: translate(-40px, -40px);
+  }
+}
+
+.test-img {
+  width: 50px;
+  transform: translate(-25px, -25px);
+
+  @include u.breakpoint(medium) {
+    width: 80px;
+    transform: translate(-40px, -40px);
+  }
+}

@@ -15,5 +15,9 @@
     &:hover {
       color: var(--clr-orange);
     }
+
+    &.active {
+      color: var(--clr-offwhite);
+    }
   }
 }

@@ -1,9 +1,24 @@
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { slide } from "./menuSlide";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { slide } from "../../utils/animations";
 
 const NavigationLink = ({ data }) => {
-  const { pathname } = location;
+  const location = useLocation();
+  const isActive = location.pathname === data.to;
+  const { t } = useTranslation("misc");
+
+  const getLinkStyle = () => {
+    const specialRoutes = ["/donde-comprar", "/contacto", "/faq"];
+    if (isActive) {
+      if (specialRoutes.includes(location.pathname)) {
+        return { color: "var(--clr-offwhite)" };
+      }
+      return { color: "var(--clr-orange)" };
+    }
+    return {};
+  };
+
   return (
     <motion.li
       className="list-item"
@@ -14,21 +29,11 @@ const NavigationLink = ({ data }) => {
       exit="exit"
     >
       <NavLink
-        className={`link ${window.innerWidth <= 700 ? "button-border" : ""}`}
-        style={({ isActive }) => ({
-          color:
-            isActive &&
-            (pathname === "/donde-comprar" ||
-              pathname === "/contacto" ||
-              pathname === "/faq")
-              ? "var(--clr-offwhite"
-              : isActive
-              ? "var(--clr-orange"
-              : "",
-        })}
+        className={`link ${isActive ? "active-link" : ""}`}
+        style={getLinkStyle()}
         to={data.to}
       >
-        {data.title}
+        {t(data.title)}
       </NavLink>
     </motion.li>
   );

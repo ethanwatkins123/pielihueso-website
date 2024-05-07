@@ -1,25 +1,34 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
-
-import "./bottomNav.scss";
+import { motion } from "framer-motion";
 
 import { bottomNavItems } from "../../constants";
+import { footerNavLinks } from "../../utils/animations";
+import "./bottomNav.scss";
 
 const BottomNav = () => {
+  const { t } = useTranslation("misc");
+
   return (
     <>
       <ul className="footer__nav" aria-label="Footer Navigation">
         {bottomNavItems.map((item, index) => (
-          <li key={index} className="footer__nav-item">
+          <motion.li
+            key={item.to}
+            className="footer__nav-item"
+            custom={index}
+            variants={footerNavLinks}
+            animate="enter"
+            initial="initial"
+          >
             <NavLink
               to={item.to}
               className="footer__link"
-              style={({ isActive }) => ({
-                color: isActive ? "var(--clr-offwhite)" : "",
-              })}
+              activeClassName="active"
             >
-              {item.title}
+              {t(item.title)}
             </NavLink>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </>

@@ -1,11 +1,11 @@
-import MainNav from "../mainNav/MainNav";
-import BottomNav from "../bottomNav/BottomNav";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+import useMobileDetection from "../../hooks/useMobileDetection";
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
 
 import "./layout.scss";
-
-import logo from "../../assets/images/Logos and Icons/04.2024-WebPielihueso-Img-Logo.svg";
-import iconInstagram from "../../assets/images/Logos and Icons/04.2024-WebPielihueso-Img-IGicon.svg";
 
 const Layout = ({
   children,
@@ -15,53 +15,55 @@ const Layout = ({
   onMouseMove,
   onMouseLeave,
 }) => {
+  const [toggleMain, setToggleMain] = useState(true);
+  const isMobile = useMobileDetection();
+
+  const toggleMainVisibility = () => {
+    setToggleMain(!toggleMain);
+  };
+
+  const mainVariants = {
+    hidden: {
+      opacity: 0,
+      x: isMobile ? "-110%" : 0,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: isMobile ? 0.8 : 1.5, ease: [0.76, 0, 0.24, 1] },
+    },
+    exit: {
+      opacity: 0,
+    },
+  };
+
   return (
     <div className={`page-container ${isColoredPage ? "colored-page" : ""}`}>
-      <header className="header">
-        <Link to="/">
-          <img className="header__logo" src={logo} alt="Pielihueso Home" />
-        </Link>
-        <MainNav className="header__nav" />
-      </header>
-
-      <div
-        className={`main ${
-          cursorStyle === "custom-cursor"
-            ? "custom-cursor"
-            : cursorStyle === "custom-cursor-left"
-            ? "custom-cursor-left"
-            : ""
-        }`}
-        onMouseMove={onMouseMove}
-        onMouseLeave={onMouseLeave}
-        onClick={handleClick}
-      >
-        {children}
-      </div>
-
-      <footer className="footer">
-        <BottomNav />
-        <div className="footer__wrapper">
-          <p className="footer__details">
-            © Pielihueso 2024 — Design : Carmela Bartolomé — Code : Ethan
-            Watkins — Illustrations: @bartnetwork
-          </p>
-          {/* Update or make component */}
-          <button className="footer__lang-button">ES / EN</button>
-          <a
-            className="footer__link"
-            href="https://www.instagram.com/pielihueso/?hl=en"
+      <Header toggleMainVisibility={toggleMainVisibility} />
+      <div className="dummy-main">
+        <AnimatePresence>
+          <motion.div
+            key={toggleMain ? "visible" : "hidden"}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={mainVariants}
+            className={`main ${toggleMain ? "" : "hidden"} ${
+              cursorStyle === "custom-cursor"
+                ? "custom-cursor"
+                : cursorStyle === "custom-cursor-left"
+                ? "custom-cursor-left"
+                : ""
+            }`}
+            onMouseMove={onMouseMove}
+            onMouseLeave={onMouseLeave}
+            onClick={handleClick}
           >
-            <img
-              className="footer__icon"
-              src={iconInstagram}
-              alt="Pielihueso Instagram"
-              width="18"
-              height="18"
-            />
-          </a>
-        </div>
-      </footer>
+            {children}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      <Footer />
     </div>
   );
 };

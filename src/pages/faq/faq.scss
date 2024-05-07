@@ -102,7 +102,7 @@
     opacity: 0;
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.25s, opacity 0.25s;
+    transition: grid-template-rows 0.3s, opacity 0.25s;
   }
 
   &__accordion-content[aria-hidden="false"] {

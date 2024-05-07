@@ -1,0 +1,45 @@
+@use "../../../styles/util/" as u;
+
+.footer {
+  padding: 11px 24px;
+
+  &__nav {
+    display: none;
+
+    @include u.breakpoint(medium) {
+      display: flex;
+    }
+  }
+
+  @include u.breakpoint(medium) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-block-end: 3px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__credits {
+    font-size: u.rem(14);
+    display: none;
+
+    @include u.breakpoint(xlarge) {
+      display: block;
+    }
+  }
+
+  // &__lang-button {
+  //   border: none;
+  //   font-size: u.rem(15);
+  //   line-height: 1.2;
+  // }
+}

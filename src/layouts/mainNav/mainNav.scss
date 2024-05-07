@@ -1,6 +1,5 @@
 @use "../../styles/util/" as u;
 
-// mobile menu button styles
 .button {
   z-index: 2;
   width: 22px;
@@ -27,7 +26,6 @@
   & .middle-line,
   & .bottom-line {
     display: block;
-    position: relative;
     transition: transform 0.3s, opacity 0.15s;
   }
 
@@ -57,14 +55,12 @@
   }
 }
 
-// nav menu styles
 .menu {
   position: fixed;
   right: 16px;
-  top: 62px; // make variable?
+  top: 62px;
   width: calc(100% - 32px);
   z-index: 1;
-  // outline: solid blue;
 
   .nav {
     display: flex;
@@ -87,7 +83,6 @@
 }
 
 .list-item {
-  // outline: solid red;
   flex-grow: 1;
 }
 
@@ -112,8 +107,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.active-link {
-  color: red;
+  @include u.breakpoint-down(small) {
+    border: 1px solid var(--clr-black);
+    border-radius: 24px;
+  }
 }

@@ -3,10 +3,6 @@
 .page-container {
   display: flex;
   flex-direction: column;
-  // display: grid;
-  // grid-template-rows: 9.1454272864% 1fr 6.8965517241%;
-
-  // device test this on mobile
   height: 100vh;
 
   @include u.breakpoint(medium) {
@@ -18,78 +14,36 @@
   }
 }
 
-.header {
-  display: flex;
+.dummy-main {
   position: relative;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-
-  &__logo {
-    width: u.rem(254);
-
-    @include u.breakpoint(medium) {
-      width: u.rem(220);
-    }
-
-    @include u.breakpoint(large) {
-      width: u.rem(330);
-    }
-  }
-}
-
-.main {
   margin: 0 16px;
-  border-radius: 24px;
-  border: 1px solid var(--clr-black);
-  overflow-y: scroll;
-  flex-grow: 1;
+  height: calc(100vh - 62px - 46px);
 
   @include u.breakpoint(medium) {
     margin: 0 22px;
+    height: calc(100vh - 59px - 52px);
   }
 
   @include u.breakpoint(large) {
     margin: 0 24.5px;
+    height: calc(100vh - 71px - 52px);
   }
 }
 
-.footer {
-  padding: 14px 24px;
-
-  &__nav {
-    display: none;
-
-    @include u.breakpoint(medium) {
-      display: flex;
-    }
-  }
+.main {
+  position: absolute;
+  border-radius: 24px;
+  border: 1px solid var(--clr-black);
+  overflow-y: scroll;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
 
   @include u.breakpoint(medium) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: static;
   }
+}
 
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-
-  &__details {
-    font-size: u.rem(14);
-    display: none;
-
-    @include u.breakpoint(xlarge) {
-      display: block;
-    }
-  }
-
-  &__lang-button {
-    border: none;
-    font-size: u.rem(15);
-    line-height: 1.2;
-  }
+.main.hidden {
+  display: none;
 }

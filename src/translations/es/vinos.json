@@ -1,0 +1,48 @@
+{
+  "title": "vinos",
+  "subtitle": "Añadas pasadas",
+
+  "filter1": "All",
+  "filter2": "Actual - 2024",
+  "filter3": "Archivo",
+
+  "type1": "Naranjo",
+  "details1": "Corte de Torrontés (40%) con Sauvignon Blanc (30%) y Chardonnay (30%).",
+  "details1Cont": "Contacto de 3 meses con sus pieles en tanque de acero inoxidable. Ingredientes: jugo de uva fermentado.",
+
+  "type2": "Tinto",
+  "details2": "50% Malbec de espaldero y 50% Cabernet Sauvignon de parral de 80 años, de nuestra finca Los Parrales, en Los Sauces.",
+  "details2Cont": "osecha temprana. Acero inoxidable. Levaduras nativas. Sin filtrar.",
+
+  "type3": "Naranjo",
+  "details3": "Corte de Torrontés (40%) con Sauvignon Blanc (30%) y Chardonnay (30%).",
+  "details3Cont": "Contacto de 3 meses con sus pieles en tanque de acero inoxidable. Después se prensó y reposó 4 meses en 2 ánforas de cerámica y una barrica. Ingredientes: jugo de uva fermentado. Sólo 1200 botellas.",
+
+  "type4": "Rosado",
+  "details4": "Rosado 100% de Petit Verdot.",
+  "details4Cont": "Prensa directa, fermentada y criada en tanque de acero inoxidable. Ingredientes: jugo de uva fermentado.",
+
+  "type5": "Blanco",
+  "details5": "Corte de Torrontés (40%) con Sauvignon Blanc y Chardonnay (si, igual que el Naranjo pero sin las pieles).",
+  "details5Cont": "Realizado en tanque de acero inoxidable y huevo de concreto. Ingredientes: jugo de uva fermentado.",
+
+  "type6": "Tinto",
+  "details6": "50% Malbec de espaldero y 50% Cabernet Sauvignon de parral de 80 años, de nuestra finca Los Parrales, en Los Sauces. Cosecha temprana.",
+  "details6Cont": "Acero inoxidable. Levaduras nativas. Sin filtrar.",
+
+  "type7": "Tinto",
+  "details7": "Este vino es un corte de Malbec y Cabernet Sauvignon de diferentes añadas, de Los Chacayes y Los Sauces respectivamente.",
+  "details7Cont": "Estuvieron en barrica (usada) y se les nota. Producción: 2300 queridas botellas.",
+
+  "type8": "Tinto",
+  "details8": "Este vino es un corte de Malbec y Cabernet Sauvignon de diferentes añadas, de Los Chacayes y Los Sauces respectivamente.",
+  "details8Cont": "Estuvieron en barrica (usada) y se les nota. Producción: 2300 queridas botellas.",
+
+  "type9": "Tinto",
+  "details9": "Este vino es muchos vinos al mismo tiempo: un 75% está conformado por cabernet sauvignon de parral en dos vinificaciones: mitad hecho como tinto y mitad como blanco (prensa directa). El otro 25 % está conformado por un blend de torrontés, chardonnay y sauvignon blanc vinificados con pieles.",
+  "details9Cont": "Es un vino tinto, creemos, con taninos eléctricos y tropicales y en constante cambio. Acero inoxidable. Levaduras nativas. Sin filtrar.",
+
+  "type10": "Tinto",
+  "details10": "Como este vino es un blend de tres añadas diferentes, no nos dejan poner el año en la etiqueta. Eso sí: es 100% petit verdot vinificado en barricas usadas.",
+  "details10Cont": "Levaduras nativas. Sin filtrar. Producción: 1400 queridas botellas Los Chacayes, Valle de Uco."
+}

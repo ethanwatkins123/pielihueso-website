@@ -1,0 +1,21 @@
+@use "../../../styles/util/" as u;
+
+.header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+
+  &__logo {
+    width: u.rem(254);
+
+    @include u.breakpoint(medium) {
+      width: u.rem(220);
+    }
+
+    @include u.breakpoint(large) {
+      width: u.rem(330);
+    }
+  }
+}

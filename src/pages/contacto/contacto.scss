@@ -77,7 +77,7 @@
     padding-bottom: 80px;
   }
 
-  &__info-wrapper {
+  &__info {
     @include u.breakpoint(medium) {
       display: flex;
       gap: 8px;

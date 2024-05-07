@@ -1,0 +1,17 @@
+@use "../../styles/util/" as u;
+
+.lang-btn {
+  font-family: u.$fontHeader;
+  border: none;
+  font-size: u.rem(15);
+  line-height: 1.2;
+  letter-spacing: 0.045px;
+  transition: color 0.3s;
+}
+
+.lang-btn.en {
+  margin-right: 6px;
+}
+.lang-btn.es {
+  margin-left: 6px;
+}

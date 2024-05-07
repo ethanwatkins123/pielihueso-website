@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Layout from "../../layouts/layout/Layout";
+import Curve from "../../layouts/curveTransition/Curve";
 
 import "./home.scss";
 
@@ -8,6 +10,7 @@ import { homeImages } from "../../constants";
 const Home = () => {
   const [imageNumber, setImageNumber] = useState(0);
   const [cursorStyle, setCursorStyle] = useState("default");
+  const { t } = useTranslation("home");
 
   const next = () => {
     setImageNumber((imageNumber + 1) % homeImages.length);
@@ -53,7 +56,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(next, 2500);
+    const intervalId = setInterval(next, 2000);
     return () => clearInterval(intervalId);
   }, [imageNumber]);
 
@@ -66,19 +69,21 @@ const Home = () => {
 
   return (
     <>
-      <Layout
-        handleClick={handleClick}
-        cursorStyle={cursorStyle}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      >
-        <img
-          className="home__image"
-          src={homeImages[imageNumber].imgMobile}
-          alt={homeImages[imageNumber].altText}
-          srcSet={`${homeImages[imageNumber].imgMobile} 750w, ${homeImages[imageNumber].imgTablet} 1728w, ${homeImages[imageNumber].imgDesktop} 2880w`}
-        />
-      </Layout>
+      <Curve>
+        <Layout
+          handleClick={handleClick}
+          cursorStyle={cursorStyle}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <img
+            className="home__image"
+            src={homeImages[imageNumber].imgMobile}
+            alt={t(homeImages[imageNumber].altText)}
+            srcSet={`${homeImages[imageNumber].imgMobile} 750w, ${homeImages[imageNumber].imgTablet} 1728w, ${homeImages[imageNumber].imgDesktop} 2880w`}
+          />
+        </Layout>
+      </Curve>
     </>
   );
 };

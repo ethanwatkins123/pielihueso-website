@@ -18,14 +18,14 @@ button:hover {
   padding: 25px 89px;
   border-radius: 24px;
   border: 1px solid var(--clr-black);
-  background-color: var(--clr-offwhite);
+  // background-color: var(--clr-offwhite);
   color: var(--clr-black);
   text-align: center;
   min-width: 343px;
   transition: background-color 0.25s;
 
   &:hover {
-    background: var(--clr-orange);
+    // background: var(--clr-orange);
   }
 
   // add focus styles

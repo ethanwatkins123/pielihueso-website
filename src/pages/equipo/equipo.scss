@@ -3,37 +3,114 @@
 .equipo {
   width: 100%;
   height: 100%;
-  padding: 32px 0 88px 24px;
+  padding: 32px 24px 80px;
   overflow-x: auto;
 
   @include u.breakpoint(medium) {
-    padding: 48px 0 121px 28px;
+    padding: 48px 26px 80px;
   }
 
   @include u.breakpoint(large) {
-    padding: 48px 0 80px 32px;
+    padding: 48px 31.5px 80px;
   }
 
   &__heading {
     margin-block-end: 24px;
-  }
 
-  @include u.breakpoint(medium) {
-    // margin-block-end: 32px;
+    @include u.breakpoint(medium) {
+      margin-block-end: 32px;
+    }
   }
 
   &__intro {
-    padding-right: 24px;
-    margin-block-end: 32px;
-
     @include u.breakpoint(medium) {
-      margin-block-end: 64px;
       max-width: 463px;
     }
 
     @include u.breakpoint(large) {
-      margin-block-end: 56px;
       max-width: 534px;
+    }
+  }
+
+  &__carousel {
+    margin-block-start: 48px;
+    margin-inline: -24px;
+
+    @include u.breakpoint(medium) {
+      margin-block-start: 64px;
+      margin-inline: -26px;
+    }
+    @include u.breakpoint(large) {
+      // margin-block-start: 106px;
+      margin-inline: -31.5px;
+    }
+  }
+
+  & .scroller {
+    &__inner {
+      gap: 10px;
+
+      @include u.breakpoint(medium) {
+        gap: 15px;
+      }
+
+      @include u.breakpoint(large) {
+        gap: 20px;
+      }
+    }
+
+    &__image {
+      width: 300px;
+      object-fit: cover;
+      max-height: 431px;
+
+      @include u.breakpoint(medium) {
+        width: 327px;
+        max-height: 453px;
+      }
+
+      @include u.breakpoint(large) {
+        width: 421px;
+        max-height: 583px;
+      }
+
+      & img {
+        border-radius: 24px;
+        border: 1px solid var(--clr-black);
+        max-height: 431px;
+        width: 100%;
+        object-fit: cover;
+
+        @include u.breakpoint(medium) {
+          max-height: 453px;
+        }
+
+        @include u.breakpoint(large) {
+          max-height: 583px;
+        }
+      }
+    }
+
+    &__slide-captions {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      text-align: center;
+      color: white;
+
+      h2 {
+        margin-block-end: 8px;
+
+        @include u.breakpoint(medium) {
+          margin-block-end: 16px;
+        }
+
+        @include u.breakpoint(large) {
+          margin-block-end: 24px;
+        }
+      }
     }
   }
 }

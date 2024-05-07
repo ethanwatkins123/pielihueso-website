@@ -3,19 +3,21 @@
 .home__image {
   width: 100%;
   height: 100%;
-  object-fit: none;
+  object-fit: cover;
 
-  @include u.breakpoint(medium) {
-    object-fit: cover;
-  }
+  // @include u.breakpoint(medium) {
+  //   object-fit: cover;
+  // }
 }
 
 .custom-cursor {
-  cursor: url("/public/assets/04.2024-WebPielihueso-Img-arrow-right.svg") 20 16,
+  cursor: url("../../assets/images/Logo\ and\ Icons/04.2024-WebPielihueso-Img-arrow-right.svg")
+      20 16,
     auto;
 }
 
 .custom-cursor-left {
-  cursor: url("/public/assets/04.2024-WebPielihueso-Img-arrow-left.svg") 20 16,
+  cursor: url("../../assets/images/Logo\ and\ Icons/04.2024-WebPielihueso-Img-arrow-left.svg")
+      20 16,
     auto;
 }
