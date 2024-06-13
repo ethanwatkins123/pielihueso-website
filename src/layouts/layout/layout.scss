@@ -3,7 +3,7 @@
 .page-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100dvh;
 
   @include u.breakpoint(medium) {
     grid-template-rows: 5.2% 1fr 4.4%;
@@ -14,26 +14,32 @@
   }
 }
 
+// make sure the height values co-ordinate with the header and footer heights, and .nav height in mainNav.scss
 .dummy-main {
   position: relative;
   margin: 0 16px;
-  height: calc(100vh - 62px - 46px);
+  height: calc(100dvh - 62px - 44px);
 
   @include u.breakpoint(medium) {
     margin: 0 22px;
-    height: calc(100vh - 59px - 52px);
+    height: calc(100dvh - 58px - 50px);
   }
 
   @include u.breakpoint(large) {
     margin: 0 24.5px;
-    height: calc(100vh - 71px - 52px);
+    height: calc(100vh - 65px - 59px);
+  }
+
+  @include u.breakpoint(xlarge) {
+    margin: 0 24.5px;
+    height: calc(100vh - 82px - 65px);
   }
 }
 
 .main {
   position: absolute;
   border-radius: 24px;
-  border: 1px solid var(--clr-black);
+  border: 1.5px solid var(--clr-black);
   overflow-y: scroll;
   flex-grow: 1;
   height: 100%;
@@ -41,6 +47,10 @@
 
   @include u.breakpoint(medium) {
     position: static;
+  }
+
+  @include u.breakpoint(xxlarge) {
+    border: 2px solid var(--clr-black);
   }
 }
 

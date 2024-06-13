@@ -4,7 +4,10 @@
 $breakpoints-up: (
   "medium": f.em(700),
   "large": f.em(900),
-  "xlarge": f.em(1200),
+  "xlarge": f.em(1600),
+  "xxlarge": f.em(1800),
+  "textMedium": f.em(768),
+  "textLarge": f.em(1440),
 );
 
 // 699.98px, 899.98px, 1439.98px

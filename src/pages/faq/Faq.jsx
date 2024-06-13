@@ -5,9 +5,14 @@ import Curve from "../../layouts/curveTransition/Curve";
 import "./faq.scss";
 import { faqItems } from "../../constants/index";
 import {
-  faqMobilePrimaryImg,
-  faqTabletPrimaryImg,
-  faqDesktopPrimaryImg,
+  faqSmPngImg,
+  faqSmWebpImg,
+  faqMdPngImg,
+  faqMdWebpImg,
+  faqLgPngImg,
+  faqLgWebpImg,
+  faqXlPngImg,
+  faqXlWebpImg,
 } from "../../utils";
 
 const Faq = () => {
@@ -17,7 +22,7 @@ const Faq = () => {
     <Curve>
       <Layout isColoredPage={true}>
         <section className="faq">
-          <h1 className="faq__heading text-heading-primary">FAQs</h1>
+          <h1 className="faq__heading text-heading-primary">FAQ</h1>
           <section className="faq__accordion">
             {faqItems.map((item) => (
               <AccordionPanel
@@ -27,12 +32,25 @@ const Faq = () => {
               />
             ))}
           </section>
-          <img
-            className="faq__image"
-            src={faqMobilePrimaryImg}
-            srcSet={`${faqMobilePrimaryImg} 750w, ${faqTabletPrimaryImg} 1206w, ${faqDesktopPrimaryImg} 1760w`}
-            alt="Pielihueso broken glass logo"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet={`${faqXlWebpImg} 2800w, ${faqLgWebpImg} 1800w, ${faqMdWebpImg} 1200w, ${faqSmWebpImg} 700w`}
+              sizes="(max-width: 700px) 80vw, 60vw"
+            />
+            <source
+              type="image/png"
+              srcSet={`${faqXlPngImg} 2800w, ${faqLgPngImg} 1800w, ${faqMdPngImg} 1200w, ${faqSmPngImg} 700w`}
+              sizes="(max-width: 700px) 80vw, 60vw"
+            />
+            <img
+              src={faqMdPngImg}
+              width="900"
+              height="591"
+              alt="Pielihueso broken glass logo"
+              className="faq__image"
+            />
+          </picture>
         </section>
       </Layout>
     </Curve>

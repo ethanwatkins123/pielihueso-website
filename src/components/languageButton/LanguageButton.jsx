@@ -24,16 +24,7 @@ const LanguageButton = () => {
   };
 
   return (
-    <div>
-      <button
-        className="lang-btn en"
-        aria-label="Switch language to English"
-        style={buttonStyle("en")}
-        onClick={() => i18n.changeLanguage("en")}
-      >
-        EN
-      </button>
-      /
+    <div className="lang-btn-container">
       <button
         className="lang-btn es"
         aria-label="Cambiar idioma a Español"
@@ -41,6 +32,15 @@ const LanguageButton = () => {
         onClick={() => i18n.changeLanguage("es")}
       >
         ES
+      </button>
+      <p className="lang-btn">/</p>
+      <button
+        className="lang-btn en"
+        aria-label="Switch language to English"
+        style={buttonStyle("en")}
+        onClick={() => i18n.changeLanguage("en")}
+      >
+        EN
       </button>
     </div>
   );

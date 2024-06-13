@@ -4,8 +4,14 @@ import ContactoInfo from "./ContactoInfo";
 import Curve from "../../layouts/curveTransition/Curve";
 import "./contacto.scss";
 import {
-  contactoMobilePrimaryImg,
-  contactoDesktopPrimaryImg,
+  contactoSmPngImg,
+  contactoSmWebpImg,
+  contactoMdPngImg,
+  contactoMdWebpImg,
+  contactoLgPngImg,
+  contactoLgWebpImg,
+  contactoXlPngImg,
+  contactoXlWebpImg,
 } from "../../utils";
 
 const Contacto = () => {
@@ -22,12 +28,25 @@ const Contacto = () => {
 
             <article className="contacto__container">
               <div className="contacto__image-wrapper">
-                <img
-                  className="contacto__image"
-                  src={contactoMobilePrimaryImg}
-                  alt=""
-                  srcSet={`${contactoMobilePrimaryImg} 750w, ${contactoDesktopPrimaryImg} 1420w`}
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet={`${contactoXlWebpImg} 2400w, ${contactoLgWebpImg} 1350w, ${contactoMdWebpImg} 950w, ${contactoSmWebpImg} 700w`}
+                    sizes="(max-width: 700px) 85vw, 50vw"
+                  />
+                  <source
+                    type="image/png"
+                    srcSet={`${contactoXlPngImg} 2400w, ${contactoLgPngImg} 1350w, ${contactoMdPngImg} 950w, ${contactoSmPngImg} 700w`}
+                    sizes="(max-width: 700px) 85vw, 50vw"
+                  />
+                  <img
+                    src={contactoMdPngImg}
+                    width="600"
+                    height="467"
+                    alt="Pielihueso shopping logo"
+                    className="contacto__image"
+                  />
+                </picture>
               </div>
 
               <div className="contacto__content">

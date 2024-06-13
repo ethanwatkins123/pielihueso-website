@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 const FilterButton = ({ onClick, label, isActive, indicator }) => {
   return (
     <button
-      className={`vinos__filter-button text-heading-secondary ${
-        isActive ? "selected" : ""
-      }`}
+      className={`vinos__filter-button ${isActive ? "selected" : ""}`}
       onClick={onClick}
       aria-label={label}
     >

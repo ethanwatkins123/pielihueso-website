@@ -3,15 +3,19 @@
 .historia {
   width: 100%;
   height: 100%;
-  padding: 32px 24px 80px;
+  padding: 32px 24px 70px;
   overflow-x: hidden;
 
   @include u.breakpoint(medium) {
-    padding: 48px 26px 80px;
+    padding: 48px 26px 88px;
   }
 
   @include u.breakpoint(large) {
-    padding: 48px 31.5px 80px;
+    padding: 43px 31.5px 88px;
+  }
+
+  @include u.breakpoint(xlarge) {
+    padding: 72px 48px 96px;
   }
 
   &__heading {
@@ -20,35 +24,42 @@
     @include u.breakpoint(medium) {
       margin-block-end: 32px;
     }
+
+    @include u.breakpoint(large) {
+      margin-block-end: 24px;
+    }
   }
 
   &__intro {
     margin-block-end: 40px;
 
-    @include u.breakpoint(medium) {
-      margin-block-end: 64px;
-      max-width: 463px;
+    @include u.breakpoint(large) {
+      mi-width: 100%;
     }
 
-    @include u.breakpoint(large) {
-      margin-block-end: 56px;
-      max-width: 534px;
+    @include u.breakpoint(xlarge) {
+      margin-block-end: 64px;
+      width: 90%;
     }
   }
 
   &__image-primary {
     width: 100%;
-    min-height: 423px;
     object-fit: cover;
     margin-block-end: 48px;
 
     @include u.breakpoint(medium) {
-      max-height: 387px;
-      margin-block-end: 80px;
+      margin-block-end: 56px;
     }
 
     @include u.breakpoint(large) {
-      max-height: 650px;
+      aspect-ratio: 1328 / 480;
+      margin-block-end: 60px;
+    }
+
+    @include u.breakpoint(xlarge) {
+      max-height: 885px;
+      margin-block-end: 104px;
     }
   }
 
@@ -56,30 +67,31 @@
     @include u.breakpoint(medium) {
       display: flex;
       gap: 68px;
-
-      & time {
-        @include u.breakpoint(large) {
-          margin-top: 5px;
-        }
-      }
     }
 
     @include u.breakpoint(large) {
-      gap: 137px;
+      gap: 146px;
     }
   }
 
-  &__years {
+  &__years,
+  &__history-continued {
     display: flex;
     flex-direction: column;
     gap: 48px;
 
     @include u.breakpoint(medium) {
-      width: 52%;
+      gap: 64px;
+      width: 50.9%;
     }
 
     @include u.breakpoint(large) {
       width: 49%;
+    }
+
+    @include u.breakpoint(xlarge) {
+      margin-left: 10%;
+      width: 29.3%;
     }
   }
 
@@ -88,12 +100,94 @@
     gap: 49px;
 
     @include u.breakpoint(medium) {
-      gap: 34px;
+      gap: 12px;
       padding-right: 0;
     }
 
     @include u.breakpoint(large) {
       gap: 79px;
+    }
+
+    @include u.breakpoint(large) {
+      gap: 24px;
+    }
+
+    & time {
+      font-family: u.$fontHeader;
+      font-size: clamp(
+        0.75rem,
+        0.571087786259542rem + 0.7633587786259542vw,
+        0.9375rem
+      );
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 0.036px;
+      text-transform: uppercase;
+
+      @include u.breakpoint(medium) {
+        line-height: 1.2;
+        letter-spacing: 0.045px;
+        width: 16.4%;
+      }
+
+      @include u.breakpoint(textMedium) {
+        font-size: clamp(
+          0.9375rem,
+          0.2946428571428572rem + 1.3392857142857142vw,
+          1.5rem
+        );
+      }
+
+      @include u.breakpoint(large) {
+        line-height: 1.3;
+      }
+
+      @include u.breakpoint(textLarge) {
+        font-size: clamp(
+          1.5rem,
+          0.8571428571428572rem + 0.7142857142857143vw,
+          2rem
+        );
+      }
+
+      @include u.breakpoint(xlarge) {
+        letter-spacing: -0.32px;
+        width: 13.8%;
+      }
+    }
+
+    & p {
+      font-size: clamp(
+        0.75rem,
+        0.6307251908396947rem + 0.5089058524173028vw,
+        0.875rem
+      );
+      line-height: 1.5;
+
+      @include u.breakpoint(medium) {
+        width: 80.1%;
+      }
+
+      @include u.breakpoint(textMedium) {
+        font-size: clamp(
+          0.875rem,
+          0.5892857142857143rem + 0.5952380952380952vw,
+          1.125rem
+        );
+      }
+
+      @include u.breakpoint(textLarge) {
+        font-size: clamp(
+          1.125rem,
+          0.6428571428571428rem + 0.5357142857142857vw,
+          1.5rem
+        );
+      }
+
+      @include u.breakpoint(xlarge) {
+        width: 82.8%;
+        line-height: 1.3;
+      }
     }
   }
 
@@ -123,6 +217,10 @@
     @include u.breakpoint(large) {
       width: 32%;
     }
+
+    @include u.breakpoint(xlarge) {
+      width: 35%;
+    }
   }
 
   &__carousel {
@@ -131,49 +229,20 @@
     margin-inline: -24px;
 
     @include u.breakpoint(medium) {
-      margin-block-start: 80px;
-      margin-block-end: 80px;
+      margin-block-start: 56px;
+      margin-block-end: 74px;
       margin-inline: -26px;
     }
+
     @include u.breakpoint(large) {
       margin-block-start: 106px;
+      margin-block-end: 80px;
       margin-inline: -31.5px;
     }
-  }
-
-  &__history-continued {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-
-    @include u.breakpoint(medium) {
-      width: 51%;
-    }
-  }
-
-  & .scroller {
-    &__inner {
-      gap: 16px;
-
-      @include u.breakpoint(large) {
-        gap: 24px;
-      }
-    }
-
-    & figure {
-      img {
-        width: 312px;
-        border-radius: 24px;
-        border: 1px solid var(--clr-black);
-
-        @include u.breakpoint(medium) {
-          width: 328px;
-        }
-
-        @include u.breakpoint(large) {
-          width: 500px;
-        }
-      }
+    @include u.breakpoint(xlarge) {
+      margin-block-start: 104px;
+      margin-block-end: 103px;
+      margin-inline: -48px;
     }
   }
 }

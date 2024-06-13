@@ -76,12 +76,37 @@ const Home = () => {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
-          <img
-            className="home__image"
-            src={homeImages[imageNumber].imgMobile}
-            alt={t(homeImages[imageNumber].altText)}
-            srcSet={`${homeImages[imageNumber].imgMobile} 750w, ${homeImages[imageNumber].imgTablet} 1728w, ${homeImages[imageNumber].imgDesktop} 2880w`}
-          />
+          <picture className="home__image">
+            <source
+              type="image/avif"
+              media="(min-width: 700px)"
+              srcSet={`${homeImages[imageNumber].imgXlAvif} 2800w, ${homeImages[imageNumber].imgLgAvif} 1950w`}
+              sizes="95vw"
+            />
+            <source
+              type="image/jpeg"
+              media="(min-width: 700px)"
+              srcSet={`${homeImages[imageNumber].imgXlPng} 2800w, ${homeImages[imageNumber].imgLgPng} 1950w`}
+              sizes="95vw"
+            />
+            <source
+              type="image/avif"
+              media="(max-width: 699px)"
+              srcSet={`${homeImages[imageNumber].imgMdAvif} 1200w, ${homeImages[imageNumber].imgSmAvif} 800w`}
+              sizes="95vw"
+            />
+            <source
+              type="image/jpeg"
+              media="(max-width: 699px)"
+              srcSet={`${homeImages[imageNumber].imgMdJpg} 1200w, ${homeImages[imageNumber].imgSmJpg} 800w`}
+              sizes="95vw"
+            />
+            <img
+              src={homeImages[imageNumber].imgMdPng}
+              className="home__image"
+              alt={t(homeImages[imageNumber].altText)}
+            />
+          </picture>
         </Layout>
       </Curve>
     </>

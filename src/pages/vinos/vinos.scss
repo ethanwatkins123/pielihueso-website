@@ -3,52 +3,69 @@
 .vinos {
   width: 100%;
   height: 100%;
-  padding: 32px 0 8px 24px;
+  padding: 32px 24px 30px;
   overflow-x: auto;
 
   @include u.breakpoint(medium) {
-    padding: 48px 0 11px 26px;
+    padding: 48px 26px 19px;
   }
 
   @include u.breakpoint(large) {
-    padding: 48px 0 34px 31.5px;
+    padding: 53px 31.5px 64px;
+  }
+
+  @include u.breakpoint(xlarge) {
+    padding: 64px 48px 0;
   }
 
   &__heading {
     margin-block-end: 32px;
 
     @include u.breakpoint(medium) {
-      margin-block-end: 32px;
+      margin-block-end: 56px;
+    }
+
+    @include u.breakpoint(large) {
+      margin-block-end: 12px;
+    }
+
+    @include u.breakpoint(xlarge) {
+      margin-block-end: 24px;
     }
   }
 
   &__content {
-    padding-right: 24px;
     display: flex;
-    margin-block-end: 56px;
     gap: 24px;
+    margin-block-end: 56px;
 
     @include u.breakpoint(medium) {
-      padding-right: 26px;
       flex-direction: column;
-      margin-block-end: 88px;
       gap: 37px;
+      margin-block-end: 88px;
     }
 
     @include u.breakpoint(large) {
-      padding-right: 31.5px;
       flex-direction: row;
       gap: 28px;
       margin-block-end: 96px;
+    }
+
+    @include u.breakpoint(xlarge) {
+      gap: 24px;
+      margin-block-end: 112px;
     }
   }
 
   &__body {
     width: 58%;
-    // flex-grow: 1;
 
     @include u.breakpoint(large) {
-      width: 23%;
+      width: 25.4%;
+    }
+
+    @include u.breakpoint(xlarge) {
+      width: 19.2%;
     }
   }
 
@@ -56,25 +73,58 @@
     margin-block-end: 48px;
 
     @include u.breakpoint(medium) {
-      margin-block-end: 80px;
+      margin-block-end: 96px;
     }
 
     @include u.breakpoint(large) {
-      margin-block-end: 100px;
+      margin-block-end: 90px;
+    }
+
+    @include u.breakpoint(xlarge) {
+      margin-block-end: 56px;
     }
   }
 
+  // here
   .vinos__filter-button {
+    font-size: clamp(
+      0.75rem,
+      0.571087786259542rem + 0.7633587786259542vw,
+      0.9375rem
+    );
+    line-height: 1.6;
+    letter-spacing: 0.036px;
+    text-transform: uppercase;
     display: flex;
+    // color: var(--clr-black);
     gap: 12px;
     align-items: center;
-    background: none;
-    border: none;
+    // background: none;
+    // border: none;
     margin-block-end: 8px;
     position: relative;
 
     @include u.breakpoint(medium) {
+      line-height: 1.2;
+      letter-spacing: 0.045px;
       margin-block-end: 12px;
+    }
+
+    @include u.breakpoint(textMedium) {
+      font-size: clamp(
+        0.9375rem,
+        0.5803571428571429rem + 0.744047619047619vw,
+        1.25rem
+      );
+    }
+
+    @include u.breakpoint(large) {
+      letter-spacing: 0.04px;
+      margin-block-end: 8px;
+    }
+
+    @include u.breakpoint(xlarge) {
+      margin-block-end: 16px;
     }
 
     &:hover {
@@ -96,25 +146,69 @@
   }
 
   &__type {
-    margin-block-end: 16px;
-  }
-
-  &__sub-heading {
     font-size: clamp(
-      1.5rem,
-      1.0229007633587786rem + 2.035623409669211vw,
-      2rem
-    ) !important;
-    line-height: 1.2 !important;
+      0.75rem,
+      0.571087786259542rem + 0.7633587786259542vw,
+      0.9375rem
+    );
+    line-height: 1.6;
+    letter-spacing: 0.036px;
+    text-transform: uppercase;
     margin-block-end: 16px;
 
     @include u.breakpoint(medium) {
+      line-height: 1.2;
+      letter-spacing: 0.045px;
+    }
+
+    @include u.breakpoint(textMedium) {
+      font-size: clamp(
+        0.9375rem,
+        0.5803571428571429rem + 0.744047619047619vw,
+        1.25rem
+      );
+    }
+  }
+
+  &__sub-heading {
+    font-family: u.$fontHeader;
+    font-size: clamp(1.5rem, 1.0229007633587786rem + 2.035623409669211vw, 2rem);
+    line-height: 1.3;
+    margin-block-end: 12px;
+
+    @include u.breakpoint(medium) {
+      line-height: 1.2;
       letter-spacing: -0.32px;
+      margin-block-end: 16px;
+    }
+
+    @include u.breakpoint(textMedium) {
+      font-size: clamp(
+        2rem,
+        1.2857142857142858rem + 1.488095238095238vw,
+        2.625rem
+      );
+    }
+
+    @include u.breakpoint(large) {
+      line-height: 1.2;
+    }
+
+    @include u.breakpoint(textLarge) {
+      font-size: clamp(2.625rem, 1.5rem + 1.25vw, 3.5rem);
+    }
+
+    @include u.breakpoint(xlarge) {
+      letter-spacing: -1.12px;
     }
   }
 
   &__description:first-of-type {
     margin-block-end: 24px;
+
+    @include u.breakpoint(large) {
+      margin-block-end: 40px;
+    }
   }
 
   &__description {
@@ -122,20 +216,45 @@
       0.75rem,
       0.6307251908396947rem + 0.5089058524173028vw,
       0.875rem
-    ) !important;
+    );
+    line-height: 1.5;
+
+    @include u.breakpoint(textMedium) {
+      font-size: clamp(
+        0.875rem,
+        0.5892857142857143rem + 0.5952380952380952vw,
+        1.125rem
+      );
+    }
+
+    @include u.breakpoint(textLarge) {
+      font-size: clamp(
+        1.125rem,
+        0.6428571428571428rem + 0.5357142857142857vw,
+        1.5rem
+      );
+    }
   }
 
-  &__image {
-    width: 34%;
-    max-height: 450px;
-    object-fit: contain;
+  &__image-wrapper {
+    width: 33.9%;
 
     @include u.breakpoint(medium) {
       width: 100%;
     }
+
     @include u.breakpoint(large) {
-      width: 75%;
+      width: 72.5%;
     }
+
+    @include u.breakpoint(xlarge) {
+      width: 79.8%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: contain;
   }
 
   &__section-break {
@@ -143,16 +262,13 @@
     background-color: var(--clr-black);
     margin-block-end: 80px;
     border: none;
-    margin-right: 24px;
 
     @include u.breakpoint(medium) {
       margin-block-end: 96px;
-      margin-right: 26px;
     }
 
     @include u.breakpoint(large) {
       margin-block-end: 106px;
-      margin-right: 31.5px;
     }
   }
 
@@ -167,4 +283,59 @@
       margin-block-end: 104px;
     }
   }
+}
+
+.container {
+  width: 100%;
+
+  button {
+    display: block;
+
+    margin-left: auto;
+    margin-right: 20px;
+  }
+}
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  height: clamp(
+    14.3125rem,
+    5.383928571428573rem + 18.601190476190474vw,
+    22.125rem
+  );
+  // border: 1px solid red;
+  // perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateX(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back {
+  color: white;
+  transform: rotateX(180deg);
 }

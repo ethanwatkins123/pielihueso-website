@@ -2,7 +2,7 @@ const ContactoInfo = ({ heading, email, url, text }) => {
   const renderContent = () => {
     if (email) {
       return (
-        <a className="text-body" href={`mailto:${email}`}>
+        <a className="" href={`mailto:${email}`}>
           {email}
         </a>
       );
@@ -25,7 +25,7 @@ const ContactoInfo = ({ heading, email, url, text }) => {
 
   return (
     <div className="contacto__info">
-      <h2 className="contacto__subheading text-heading-secondary">{heading}</h2>
+      <h2 className="contacto__subheading">{heading}</h2>
       <div className="contacto__details">{renderContent()}</div>
     </div>
   );

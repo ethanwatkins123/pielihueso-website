@@ -1,17 +1,50 @@
 @use "../../styles/util/" as u;
 
+.lang-btn-container {
+  display: flex;
+  align-items: center;
+  height: 14px;
+
+  @include u.breakpoint-down(small) {
+    margin-top: 4px;
+  }
+
+  @include u.breakpoint(xlarge) {
+    height: 22.75px;
+    padding-top: 4px;
+  }
+
+  & p {
+    margin-bottom: 2px;
+
+    @include u.breakpoint(xlarge) {
+      margin-top: 4px;
+    }
+  }
+}
+
 .lang-btn {
   font-family: u.$fontHeader;
   border: none;
-  font-size: u.rem(15);
+  font-size: 15px;
+
   line-height: 1.2;
   letter-spacing: 0.045px;
   transition: color 0.3s;
+
+  @include u.breakpoint(medium) {
+    height: 14px;
+  }
+
+  @include u.breakpoint(xlarge) {
+    font-size: 20px;
+    height: 22.75px;
+  }
 }
 
-.lang-btn.en {
+.lang-btn.es {
   margin-right: 6px;
 }
-.lang-btn.es {
+.lang-btn.en {
   margin-left: 6px;
 }

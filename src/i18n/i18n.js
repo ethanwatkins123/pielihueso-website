@@ -50,7 +50,7 @@ i18n
         faq: faqES,
       },
     },
-    lng: "en",
+    lng: "es",
     fallbackLng: "en",
     ns: [
       "misc",

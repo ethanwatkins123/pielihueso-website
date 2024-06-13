@@ -25,7 +25,7 @@ const Layout = ({
   const mainVariants = {
     hidden: {
       opacity: 0,
-      x: isMobile ? "-110%" : 0,
+      // x: isMobile ? "-110%" : 0,
     },
     visible: {
       opacity: 1,

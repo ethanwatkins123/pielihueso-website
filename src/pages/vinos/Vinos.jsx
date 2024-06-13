@@ -65,6 +65,7 @@ const Vinos = () => {
               indicator={filter === "archive" ? indicatorVariant : null}
             />
           </div>
+
           <div role="status" aria-live="polite" className="sr-only">
             Selected filter: {filter}
           </div>

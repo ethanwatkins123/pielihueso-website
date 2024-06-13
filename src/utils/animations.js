@@ -15,9 +15,9 @@ export const headerNavLinks = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1,
+      duration: 1.35,
       ease: [0.76, 0, 0.24, 1],
-      delay: 0.05 * i,
+      // delay: 0.05 * i,
     },
   }),
 };
@@ -27,7 +27,7 @@ export const footerNavLinks = {
   enter: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.1 * i },
+    transition: { duration: 1.35, ease: [0.76, 0, 0.24, 1] },
   }),
 };
 

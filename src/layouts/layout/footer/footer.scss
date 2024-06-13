@@ -1,13 +1,40 @@
 @use "../../../styles/util/" as u;
 
 .footer {
-  padding: 11px 24px;
+  padding: 14px 16px;
+  height: 44px;
+
+  @include u.breakpoint(medium) {
+    height: 50px;
+    padding: 14px 24px;
+  }
+
+  @include u.breakpoint(large) {
+    height: 59px;
+    padding: 14px 24px;
+  }
+
+  @include u.breakpoint(xlarge) {
+    height: 65px;
+    padding: 18px 28px;
+  }
 
   &__nav {
     display: none;
 
     @include u.breakpoint(medium) {
       display: flex;
+      padding-top: 3px;
+    }
+  }
+
+  &__nav-item {
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: 0.045px;
+
+    @include u.breakpoint(xlarge) {
+      font-size: 20px;
     }
   }
 
@@ -18,28 +45,37 @@
   }
 
   &__icon {
-    margin-block-end: 3px;
+    @include u.breakpoint(medium) {
+      width: 18px;
+      height: auto;
+    }
   }
 
   &__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 8px;
+
+    @include u.breakpoint(large) {
+      gap: 24px;
+    }
+    @include u.breakpoint(xlarge) {
+      gap: 32px;
+    }
   }
 
   &__credits {
     font-size: u.rem(14);
     display: none;
 
-    @include u.breakpoint(xlarge) {
+    @media (min-width: 1200px) {
       display: block;
+      margin-top: 2px;
+    }
+
+    @include u.breakpoint(xlarge) {
+      font-size: 18px;
     }
   }
-
-  // &__lang-button {
-  //   border: none;
-  //   font-size: u.rem(15);
-  //   line-height: 1.2;
-  // }
 }

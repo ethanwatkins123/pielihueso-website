@@ -1,0 +1,27 @@
+@use "../../../../styles/util/" as u;
+
+.footer {
+  &__nav {
+    gap: 24px;
+  }
+
+  &__link {
+    font-size: u.rem(15);
+    line-height: 1.2;
+    letter-spacing: 0.045px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    @include u.breakpoint(xlarge) {
+      font-size: 20px;
+    }
+
+    &:hover {
+      color: var(--clr-orange);
+    }
+
+    &.active {
+      color: var(--clr-offwhite);
+    }
+  }
+}

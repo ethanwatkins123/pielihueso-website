@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import BottomNav from "../../bottomNav/BottomNav";
+import BottomNav from "./bottomNav/BottomNav";
 import LanguageButton from "../../../components/languageButton/LanguageButton";
 import { iconInstagramImg } from "../../../utils";
 
@@ -19,8 +19,8 @@ function Footer() {
             className="footer__icon"
             src={iconInstagramImg}
             alt="Pielihueso Instagram"
-            width="18"
-            height="18"
+            width="16"
+            height="16"
           />
         </a>
       </div>

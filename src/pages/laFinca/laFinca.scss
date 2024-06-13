@@ -11,7 +11,11 @@
   }
 
   @include u.breakpoint(large) {
-    padding: 48px 31.5px 80px;
+    padding: 48px 31.5px 72px;
+  }
+
+  @include u.breakpoint(xlarge) {
+    padding: 72px 48px 96px;
   }
 
   &__heading {
@@ -20,19 +24,34 @@
     @include u.breakpoint(medium) {
       margin-block-end: 32px;
     }
+
+    @include u.breakpoint(large) {
+      margin-block-end: 24px;
+    }
+
+    @include u.breakpoint(xlarge) {
+      margin-block-end: 40px;
+    }
   }
 
   &__main-container {
     @include u.breakpoint(large) {
       display: flex;
+      justify-content: flex-start;
+      gap: 8.6%;
+    }
 
-      gap: 12.6%;
-      max-width: 1093px;
+    @include u.breakpoint(xlarge) {
+      gap: 6%;
     }
   }
 
   &__image-desktop-wrapper {
-    width: 39%;
+    width: 36%;
+
+    @include u.breakpoint(xlarge) {
+      width: 44.4%;
+    }
   }
 
   &__image-desktop {
@@ -41,6 +60,11 @@
     @include u.breakpoint(large) {
       display: block;
       width: 100%;
+      aspect-ratio: 474 / 641;
+    }
+
+    @include u.breakpoint(xlarge) {
+      aspect-ratio: 1074 / 1333;
     }
   }
 
@@ -48,13 +72,17 @@
     margin-block-end: 40px;
 
     @include u.breakpoint(medium) {
-      margin-block-end: 64px;
-      max-width: 463px;
+      margin-block-end: 54px;
+      width: 73%;
     }
 
     @include u.breakpoint(large) {
-      margin-block-end: 56px;
-      max-width: 534px;
+      margin-block-end: 110px;
+      width: 100%;
+    }
+
+    @include u.breakpoint(xlarge) {
+      margin-block-end: 88px;
     }
   }
 
@@ -67,7 +95,11 @@
 
     @include u.breakpoint(large) {
       display: block;
-      width: 48.4%;
+      width: 49%;
+    }
+
+    @include u.breakpoint(xlarge) {
+      width: 44.5%;
     }
   }
 
@@ -76,6 +108,18 @@
       display: flex;
       justify-content: space-between;
       gap: 47px;
+    }
+
+    & picture {
+      width: 100%;
+
+      @include u.breakpoint(medium) {
+        width: 40%;
+      }
+
+      @include u.breakpoint(large) {
+        display: none;
+      }
     }
   }
 
@@ -87,7 +131,6 @@
     @include u.breakpoint(medium) {
       max-height: 387px;
       margin-block-end: 80px;
-      width: 39%;
     }
 
     @include u.breakpoint(large) {
@@ -97,6 +140,14 @@
 
   &__details {
     width: 100%;
+
+    @include u.breakpoint(medium) {
+      width: 54%;
+    }
+
+    @include u.breakpoint(large) {
+      width: 100%;
+    }
   }
 
   &__attribute {
@@ -105,11 +156,16 @@
     gap: 48px;
 
     @include u.breakpoint(medium) {
-      gap: 53px;
+      // gap: 53px;
     }
 
     @include u.breakpoint(large) {
-      gap: 40px;
+      gap: 44px;
+    }
+
+    @include u.breakpoint(xlarge) {
+      width: 77%;
+      gap: 52px;
     }
   }
 
@@ -118,36 +174,100 @@
     gap: 8px;
 
     @include u.breakpoint(medium) {
-      gap: 28px;
+      gap: 14px;
+    }
+
+    @include u.breakpoint(large) {
+      gap: 26px;
     }
   }
 
   &__subheading {
-    margin-block-end: 8px;
-    min-width: 68px;
+    font-size: clamp(
+      0.75rem,
+      0.571087786259542rem + 0.7633587786259542vw,
+      0.9375rem
+    );
+    line-height: 1.6;
+    letter-spacing: 0.036px;
+    text-transform: uppercase;
+    width: 24.5%;
 
     @include u.breakpoint(medium) {
-      min-width: 74px;
-      padding-top: 5px;
+      line-height: 1.2;
+      letter-spacing: 0.045px;
+    }
+
+    @include u.breakpoint(textMedium) {
+      font-size: clamp(
+        0.9375rem,
+        0.2946428571428572rem + 1.3392857142857142vw,
+        1.5rem
+      );
     }
 
     @include u.breakpoint(large) {
-      min-width: 85px;
-      padding-top: 5px;
+      line-height: 1.3;
+      width: 30.9%;
+    }
+
+    @include u.breakpoint(xlarge) {
+      width: 26.5%;
+    }
+  }
+
+  &__detail {
+    font-size: clamp(
+      0.75rem,
+      0.6307251908396947rem + 0.5089058524173028vw,
+      0.875rem
+    );
+    line-height: 1.5;
+    width: 71.6%;
+
+    @include u.breakpoint(textMedium) {
+      font-size: clamp(
+        0.875rem,
+        0.5892857142857143rem + 0.5952380952380952vw,
+        1.125rem
+      );
+    }
+
+    @include u.breakpoint(large) {
+      width: 65%;
+    }
+
+    @include u.breakpoint(textLarge) {
+      font-size: clamp(
+        1.125rem,
+        0.6428571428571428rem + 0.5357142857142857vw,
+        1.5rem
+      );
+    }
+
+    @include u.breakpoint(xlarge) {
+      line-height: 1.3;
+      width: 70.3%;
     }
   }
 
   &__carousel {
-    margin-block-start: 48px;
     margin-inline: -24px;
+    margin-block-start: 80px;
 
     @include u.breakpoint(medium) {
-      margin-block-start: 80px;
       margin-inline: -26px;
+      margin-block-start: 90px;
     }
+
     @include u.breakpoint(large) {
-      margin-block-start: 106px;
       margin-inline: -31.5px;
+      margin-block-start: 110px;
+    }
+
+    @include u.breakpoint(xlarge) {
+      margin-inline: -48px;
+      margin-block-start: 160px;
     }
   }
 

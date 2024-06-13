@@ -7,7 +7,7 @@
     height: calc(100vh + 240px);
     top: -120px;
     left: 0;
-    position: fixed;
+    position: absolute;
     pointer-events: none;
     z-index: 99999;
 
@@ -21,7 +21,21 @@
   }
 }
 
-.transitionImg {
+.transitionIconIn {
+  position: absolute;
+  top: 125%;
+  left: 50%;
+  transform: translate(-25px, -25px);
+  z-index: 999999;
+  width: 50px;
+
+  @include u.breakpoint(medium) {
+    width: 80px;
+    transform: translate(-40px, -40px);
+  }
+}
+
+.transitionIconOut {
   position: absolute;
   top: 50%;
   left: 50%;

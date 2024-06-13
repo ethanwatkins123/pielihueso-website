@@ -10,7 +10,6 @@
 * {
   margin: 0;
   padding: 0;
-  // maybe problematic?
   font: inherit;
 }
 
@@ -26,6 +25,7 @@ html:focus-within {
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -33,13 +33,13 @@ body {
   color: var(--clr-black);
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  overflow-x: hidden;
 }
 
 img,
 picture,
 svg {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
