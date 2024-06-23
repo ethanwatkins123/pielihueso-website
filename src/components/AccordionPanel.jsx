@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
@@ -8,8 +9,18 @@ const AccordionPanel = ({ question, answer }) => {
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
+
+  const item = {
+    hidden: { y: 5, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.3, ease: "easeIn" } },
+  };
+
   return (
-    <div className="faq__accordion-panel" onClick={toggleExpand}>
+    <motion.div
+      variants={item}
+      className="faq__accordion-panel"
+      onClick={toggleExpand}
+    >
       <h2 id="panel1-heading ">
         <button
           className="faq__accordion-trigger"
@@ -54,7 +65,7 @@ const AccordionPanel = ({ question, answer }) => {
           <p>{answer}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

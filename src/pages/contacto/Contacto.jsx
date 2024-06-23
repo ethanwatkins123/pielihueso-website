@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import Layout from "../../layouts/layout/Layout";
 import ContactoInfo from "./ContactoInfo";
 import Curve from "../../layouts/curveTransition/Curve";
@@ -14,20 +16,40 @@ import {
   contactoXlWebpImg,
 } from "../../utils";
 
+import {
+  containerVariants,
+  itemVariants,
+  itemVariantsMobile,
+  imageVariants,
+  imageVariantsMobile,
+} from "../../utils/animations";
+
 const Contacto = () => {
   const { t } = useTranslation("contacto");
+  const isDesktop = useMediaQuery({ minWidth: 700 });
 
   return (
     <>
       <Curve>
         <Layout isColoredPage={true}>
-          <section className="contacto">
-            <h1 className="contacto__heading text-heading-primary">
+          <motion.section
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="contacto"
+          >
+            <motion.h1
+              variants={isDesktop ? itemVariants : itemVariantsMobile}
+              className="contacto__heading text-heading-primary"
+            >
               {t("title")}
-            </h1>
+            </motion.h1>
 
             <article className="contacto__container">
-              <div className="contacto__image-wrapper">
+              <motion.div
+                variants={isDesktop ? imageVariants : imageVariantsMobile}
+                className="contacto__image-wrapper"
+              >
                 <picture>
                   <source
                     type="image/webp"
@@ -43,15 +65,24 @@ const Contacto = () => {
                     src={contactoMdPngImg}
                     width="600"
                     height="467"
-                    alt="Pielihueso shopping logo"
+                    fetchPriority="high"
+                    decoding="async"
+                    alt={t("alt-text")}
                     className="contacto__image"
                   />
                 </picture>
-              </div>
-
+              </motion.div>
               <div className="contacto__content">
-                <p className="contacto__intro text-intro">{t("intro")}</p>
-                <div className="contacto__info-container">
+                <motion.p
+                  variants={isDesktop ? itemVariants : itemVariantsMobile}
+                  className="contacto__intro text-intro"
+                >
+                  {t("intro")}
+                </motion.p>
+                <motion.div
+                  className="contacto__info-container"
+                  variants={isDesktop ? itemVariants : itemVariantsMobile}
+                >
                   <ContactoInfo
                     heading={t("contact1")}
                     email="ceciliadickinson@grupobart.com"
@@ -69,10 +100,10 @@ const Contacto = () => {
                     heading={t("contact3")}
                     text="Finca Los Parrales. Los Sauces, Mendoza, Argentina"
                   />
-                </div>
+                </motion.div>
               </div>
             </article>
-          </section>
+          </motion.section>
         </Layout>
       </Curve>
     </>

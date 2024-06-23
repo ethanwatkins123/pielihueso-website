@@ -6,6 +6,7 @@ const LanguageButton = () => {
   const { i18n } = useTranslation();
   const currentLanguage = i18n.language; // Define currentLanguage before use
   const location = useLocation();
+  const { t } = useTranslation("misc");
 
   const buttonStyle = (lang) => {
     const specialRoutes = ["/donde-comprar", "/contacto", "/faq"];
@@ -27,7 +28,7 @@ const LanguageButton = () => {
     <div className="lang-btn-container">
       <button
         className="lang-btn es"
-        aria-label="Cambiar idioma a Español"
+        aria-label={t("langButtonAriaLabelEs")}
         style={buttonStyle("es")}
         onClick={() => i18n.changeLanguage("es")}
       >
@@ -36,7 +37,7 @@ const LanguageButton = () => {
       <p className="lang-btn">/</p>
       <button
         className="lang-btn en"
-        aria-label="Switch language to English"
+        aria-label={t("langButtonAriaLabelEn")}
         style={buttonStyle("en")}
         onClick={() => i18n.changeLanguage("en")}
       >

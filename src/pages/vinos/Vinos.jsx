@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 import FilterButton from "./FilterButton";
 import WineItem from "./WineItem";
@@ -6,10 +8,16 @@ import Layout from "../../layouts/layout/Layout";
 import Curve from "../../layouts/curveTransition/Curve";
 import "./vinos.scss";
 import { vinos } from "../../constants";
+import {
+  containerVariants,
+  itemVariants,
+  itemVariantsMobile,
+} from "../../utils/animations";
 
 const Vinos = () => {
   const [filter, setFilter] = useState("all");
   const { t } = useTranslation("vinos");
+  const isDesktop = useMediaQuery({ minWidth: 700 });
 
   let filteredWines;
   switch (filter) {
@@ -39,9 +47,20 @@ const Vinos = () => {
   return (
     <Curve>
       <Layout>
-        <section className="vinos">
-          <h1 className="vinos__heading text-heading-primary">{t("title")}</h1>
-          <div
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="vinos"
+        >
+          <motion.h1
+            variants={isDesktop ? itemVariants : itemVariantsMobile}
+            className="vinos__heading text-heading-primary"
+          >
+            {t("title")}
+          </motion.h1>
+          <motion.div
+            variants={isDesktop ? itemVariants : itemVariantsMobile}
             className="vinos__filter-buttons"
             role="group"
             aria-label="Filter Wines by Year"
@@ -64,12 +83,12 @@ const Vinos = () => {
               onClick={() => setFilter("archive")}
               indicator={filter === "archive" ? indicatorVariant : null}
             />
-          </div>
+          </motion.div>
 
           <div role="status" aria-live="polite" className="sr-only">
             Selected filter: {filter}
           </div>
-          <ul>
+          <motion.ul variants={isDesktop ? itemVariants : itemVariantsMobile}>
             {filteredWines.map((wine, index) => (
               <WineItem
                 key={wine.id}
@@ -79,8 +98,8 @@ const Vinos = () => {
                 }
               />
             ))}
-          </ul>
-        </section>
+          </motion.ul>
+        </motion.section>
       </Layout>
     </Curve>
   );

@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { scrollVariants } from "../../utils/animations";
+
 const ContactoInfo = ({ heading, email, url, text }) => {
   const renderContent = () => {
     if (email) {
@@ -24,10 +27,16 @@ const ContactoInfo = ({ heading, email, url, text }) => {
   };
 
   return (
-    <div className="contacto__info">
+    <motion.div
+      variants={scrollVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      className="contacto__info"
+    >
       <h2 className="contacto__subheading">{heading}</h2>
       <div className="contacto__details">{renderContent()}</div>
-    </div>
+    </motion.div>
   );
 };
 

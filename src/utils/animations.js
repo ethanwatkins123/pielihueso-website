@@ -1,11 +1,11 @@
 import { easeOut } from "framer-motion";
 
 export const defaultAnimations = {
-  hidden: { opacity: 0, y: -100 },
+  hidden: { opacity: 0, y: -10 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: 0.2, duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+    transition: { delay: 0.2, duration: 1.5, ease: [0.76, 0, 0.24, 1] },
   },
 };
 
@@ -73,3 +73,67 @@ export const scale = {
 //     opacity: 0,
 //   },
 // };
+
+export const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.7,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+export const itemVariants = {
+  hidden: { y: 10, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+
+export const itemVariantsMobile = {
+  hidden: { y: 10, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+
+export const imageVariants = {
+  hidden: { y: 10, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { delay: 1, duration: 0.5, ease: "easeInOut" },
+  },
+};
+
+export const imageVariantsMobile = {
+  hidden: { y: 10, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+
+export const scrollVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+export const scrollVariantsMobile = {
+  hidden: { y: 10, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};

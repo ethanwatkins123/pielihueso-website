@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
-import useMobileDetection from "../../hooks/useMobileDetection";
+import { useMediaQuery } from "react-responsive";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 
@@ -16,7 +15,7 @@ const Layout = ({
   onMouseLeave,
 }) => {
   const [toggleMain, setToggleMain] = useState(true);
-  const isMobile = useMobileDetection();
+  const isMobile = useMediaQuery({ maxWidth: 700 });
 
   const toggleMainVisibility = () => {
     setToggleMain(!toggleMain);

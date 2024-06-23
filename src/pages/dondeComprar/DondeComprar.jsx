@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import Layout from "../../layouts/layout/Layout";
 import Curve from "../../layouts/curveTransition/Curve";
 import "./dondeComprar.scss";
@@ -15,11 +17,28 @@ import {
   comprarXlWebpImg,
 } from "../../utils";
 
+import {
+  containerVariants,
+  itemVariants,
+  itemVariantsMobile,
+  imageVariants,
+  imageVariantsMobile,
+  scrollVariants,
+  scrollVariantsMobile,
+} from "../../utils/animations";
+
 const ImporterItem = ({ item }) => {
   const { t } = useTranslation("comprar");
+  const isDesktop = useMediaQuery({ minWidth: 700 });
 
   return (
-    <article className="dondeComprar__info-wrapper">
+    <motion.article
+      className="dondeComprar__info-wrapper"
+      variants={isDesktop ? scrollVariants : scrollVariantsMobile}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+    >
       <h2 className="dondeComprar__subheading ">{t(item.country)}</h2>
       <div className="dondeComprar__importer-container">
         <p className="dondeComprar__company">{item.company}</p>
@@ -31,21 +50,34 @@ const ImporterItem = ({ item }) => {
           @brazoswine
         </a>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
 const DondeComprar = () => {
   const { t } = useTranslation("comprar");
+  const isDesktop = useMediaQuery({ minWidth: 700 });
+
   return (
     <Curve>
       <Layout isColoredPage={true}>
-        <section className="dondeComprar">
-          <h1 className="dondeComprar__heading text-heading-primary">
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="dondeComprar"
+        >
+          <motion.h1
+            variants={isDesktop ? itemVariants : itemVariantsMobile}
+            className="dondeComprar__heading text-heading-primary"
+          >
             {t("title")}
-          </h1>
+          </motion.h1>
           <div className="dondeComprar__container">
-            <div className="dondeComprar__image-wrapper">
+            <motion.div
+              variants={isDesktop ? imageVariants : imageVariantsMobile}
+              className="dondeComprar__image-wrapper"
+            >
               <picture>
                 <source
                   type="image/webp"
@@ -61,25 +93,37 @@ const DondeComprar = () => {
                   src={comprarMdPngImg}
                   width="650"
                   height="820"
-                  alt="Pielihueso flag logo"
+                  alt={t("alt-text")}
                   className="dondeComprar__image"
                 />
               </picture>
-            </div>
+            </motion.div>
             <div className="dondeComprar__content">
-              <p className="dondeComprar__intro text-intro">{t("intro")}</p>
-              <p className="dondeComprar__intro--second text-intro">
+              <motion.p
+                variants={isDesktop ? itemVariants : itemVariantsMobile}
+                className="dondeComprar__intro text-intro"
+              >
+                {t("intro")}
+              </motion.p>
+              <motion.p
+                variants={isDesktop ? itemVariants : itemVariantsMobile}
+                className="dondeComprar__intro--second text-intro"
+              >
                 {t("intro2")}
-              </p>
-              <section className="dondeComprar__info-container">
+              </motion.p>
+              <motion.section
+                variants={isDesktop ? itemVariants : itemVariantsMobile}
+                className="dondeComprar__info-container"
+              >
                 {importerItems.map((item) => (
                   <ImporterItem key={item.id} item={item} />
                 ))}
-              </section>
+              </motion.section>
             </div>
           </div>
-        </section>
+        </motion.section>
       </Layout>
+      //{" "}
     </Curve>
   );
 };

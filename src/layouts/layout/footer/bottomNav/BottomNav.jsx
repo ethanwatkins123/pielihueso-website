@@ -17,7 +17,7 @@ const BottomNav = () => {
             key={item.to}
             className="footer__nav-item"
             custom={index}
-            variants={footerNavLinks}
+            // variants={footerNavLinks}
             animate="enter"
             initial="initial"
           >

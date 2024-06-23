@@ -55,7 +55,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 16px;
 
     @include u.breakpoint(large) {
       gap: 24px;
@@ -69,13 +69,17 @@
     font-size: u.rem(14);
     display: none;
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1000px) {
       display: block;
       margin-top: 2px;
     }
 
     @include u.breakpoint(xlarge) {
       font-size: 18px;
+    }
+
+    a {
+      font-family: "AUTHENTIC Sans body";
     }
   }
 }

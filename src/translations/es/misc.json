@@ -16,5 +16,9 @@
   "bottomNav2": "Dónde comprar",
   "bottomNav3": "FAQ",
 
-  "footerCredits": "© Pielihueso 2024 — Diseño : Carmela Bartolomé — Código : Ethan Watkins — Illustraciones: @bartnetwork"
+  "footerCredits1": "© Pielihueso 2024 — Sitio Web: ",
+  "footerCredits2": " — Illustrations: ",
+
+  "langButtonAriaLabelEn": "Cambiar idioma a Español",
+  "langButtonAriaLabelEs": "Cambiar idioma a Inglés"
 }

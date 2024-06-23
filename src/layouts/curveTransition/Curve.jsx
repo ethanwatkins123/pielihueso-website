@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import useMobileDetection from "../../hooks/useMobileDetection";
+import { useMediaQuery } from "react-responsive";
 import { iconSmileyImg, iconSmileyWinkImg } from "../../utils";
 import "./curve.scss";
 
@@ -85,7 +85,8 @@ export default function Curve({ children }) {
 }
 
 const SVG = ({ width, height }) => {
-  const isMobile = useMobileDetection();
+  const isMobile = useMediaQuery({ maxWidth: 700 });
+  // const isMobile = useMobileDetection();
   const y = isMobile ? 120 : 300;
 
   // const initialPath = `

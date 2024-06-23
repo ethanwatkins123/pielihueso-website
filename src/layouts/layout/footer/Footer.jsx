@@ -12,7 +12,14 @@ function Footer() {
     <footer className="footer">
       <BottomNav />
       <div className="footer__wrapper">
-        <p className="footer__credits">{t("footerCredits")}</p>
+        <p className="footer__credits">
+          {t("footerCredits1")}
+          <a href="https://www.studio-menu.com/">Studio Menú</a>
+          {t("footerCredits2")}
+          <a href="https://www.instagram.com/bartnetwork/?hl=en">
+            @bartnetwork
+          </a>
+        </p>
         <LanguageButton />
         <a href="https://www.instagram.com/pielihueso/?hl=en">
           <img

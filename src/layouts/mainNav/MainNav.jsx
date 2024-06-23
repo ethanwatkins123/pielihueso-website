@@ -43,7 +43,7 @@ const DesktopMenu = () => {
           <motion.li
             key={index}
             custom={desktopNavItems.length - 1 - index}
-            variants={headerNavLinks}
+            // variants={headerNavLinks}
             animate="enter"
             initial="initial"
           >

@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import Layout from "../../layouts/layout/Layout";
 import Curve from "../../layouts/curveTransition/Curve";
 import SplideCarousel from "../../components/splideCarousel/SplideCarousel";
@@ -23,32 +25,63 @@ import {
   historiaSecondaryLgWebpImg,
 } from "../../utils";
 
+import {
+  containerVariants,
+  itemVariants,
+  itemVariantsMobile,
+  scrollVariants,
+  scrollVariantsMobile,
+} from "../../utils/animations";
+
 import { historyItems, slidesNuestraHistoria } from "../../constants";
 
 const HistoryItem = ({ year, text }) => {
   const { t } = useTranslation("historia");
+  const isDesktop = useMediaQuery({ minWidth: 700 });
 
   return (
-    <article className="historia__year">
+    <motion.article
+      variants={isDesktop ? scrollVariants : scrollVariantsMobile}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      className="historia__year"
+    >
       <time>{year}</time>
       <p>{t(text)}</p>
-    </article>
+    </motion.article>
   );
 };
 
 const NuestraHistoria = () => {
   const { t } = useTranslation("historia");
+  const isDesktop = useMediaQuery({ minWidth: 700 });
 
   return (
     <Curve>
       <Layout>
-        <section className="historia">
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="historia"
+        >
           <header>
-            <h1 className="historia__heading text-heading-primary">
+            <motion.h1
+              variants={isDesktop ? itemVariants : itemVariantsMobile}
+              className="historia__heading text-heading-primary"
+            >
               {t("title")}
-            </h1>
-            <p className="historia__intro text-intro">{t("intro")}</p>
-            <picture>
+            </motion.h1>
+            <motion.p
+              variants={isDesktop ? itemVariants : itemVariantsMobile}
+              className="historia__intro text-intro"
+            >
+              {t("intro")}
+            </motion.p>
+            <motion.picture
+              variants={isDesktop ? itemVariants : itemVariantsMobile}
+            >
               <source
                 type="image/webp"
                 media="(max-width: 699px)"
@@ -85,17 +118,25 @@ const NuestraHistoria = () => {
               />
               <img
                 src={historiaMainLgWebpImg}
+                fetchPriority="high"
+                decoding="async"
                 alt={t("altTextMainImg")}
                 className="historia__image-primary"
               />
-            </picture>
+            </motion.picture>
           </header>
           <section className="historia__history">
             <div className="historia__years">
               {historyItems.slice(0, 2).map((item) => (
                 <HistoryItem key={item.year} {...item} />
               ))}
-              <figure className="historia__figure-mobile">
+              <motion.figure
+                variants={scrollVariantsMobile}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.25 }}
+                className="historia__figure-mobile"
+              >
                 <picture>
                   <source
                     type="image/webp"
@@ -119,12 +160,18 @@ const NuestraHistoria = () => {
                 <figcaption className="text-figcaption">
                   {t("altTextSecondaryImg")}
                 </figcaption>
-              </figure>
+              </motion.figure>
               {historyItems.slice(2, 5).map((item) => (
                 <HistoryItem key={item.year} {...item} />
               ))}
             </div>
-            <figure className="historia__figure">
+            <motion.figure
+              variants={scrollVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              className="historia__figure"
+            >
               <picture>
                 <source
                   type="image/webp"
@@ -148,7 +195,7 @@ const NuestraHistoria = () => {
               <figcaption className="text-figcaption">
                 {t("altTextSecondaryImg")}
               </figcaption>
-            </figure>
+            </motion.figure>
           </section>
 
           <section className="historia__carousel">
@@ -170,7 +217,7 @@ const NuestraHistoria = () => {
               <HistoryItem key={item.year} {...item} />
             ))}
           </section>
-        </section>
+        </motion.section>
       </Layout>
     </Curve>
   );

@@ -82,18 +82,18 @@
 
   &__intro,
   &__intro--second {
-    margin-block-end: 40px;
+    margin-block-end: 24px;
 
     @include u.breakpoint(medium) {
       margin-block-end: 24px;
     }
 
     @include u.breakpoint(large) {
-      margin-block-end: 72px;
+      margin-block-end: 40px;
     }
 
     @include u.breakpoint(xlarge) {
-      margin-block-end: 80px;
+      margin-block-end: 56px;
     }
   }
 
@@ -101,7 +101,7 @@
     margin-block-end: 48px;
 
     @include u.breakpoint(medium) {
-      margin-block-end: 32px;
+      margin-block-end: 48px;
     }
 
     @include u.breakpoint(large) {

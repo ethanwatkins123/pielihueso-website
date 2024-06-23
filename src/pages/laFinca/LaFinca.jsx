@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import Layout from "../../layouts/layout/Layout";
 import Curve from "../../layouts/curveTransition/Curve";
 import SplideCarousel from "../../components/splideCarousel/SplideCarousel";
@@ -12,31 +14,63 @@ import {
   fincaMainLgWebpImg,
 } from "../../utils";
 import { fincaItems, slidesLaFinca } from "../../constants";
+import {
+  containerVariants,
+  itemVariants,
+  itemVariantsMobile,
+  imageVariants,
+  imageVariantsMobile,
+  scrollVariants,
+  scrollVariantsMobile,
+} from "../../utils/animations";
 
 const FincaItem = ({ attribute, detail }) => {
   const { t } = useTranslation("finca");
+  const isDesktop = useMediaQuery({ minWidth: 700 });
 
   return (
-    <article className="finca__info-wrapper">
+    <motion.article
+      variants={isDesktop ? scrollVariants : scrollVariantsMobile}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      className="finca__info-wrapper"
+    >
       <h2 className="finca__subheading">{t(attribute)}</h2>
       <p className="finca__detail">{t(detail)}</p>
-    </article>
+    </motion.article>
   );
 };
 
 const LaFinca = () => {
   const { t } = useTranslation("finca");
+  const isDesktop = useMediaQuery({ minWidth: 700 });
 
   return (
     <Curve>
       <Layout>
-        <section className="finca">
-          <h1 className="finca__heading text-heading-primary">{t("title")}</h1>
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="finca"
+        >
+          <motion.h1
+            variants={isDesktop ? itemVariants : itemVariantsMobile}
+            className="finca__heading text-heading-primary"
+          >
+            {t("title")}
+          </motion.h1>
           <main className="finca__main-container">
             <div className="finca__sub-container">
-              <p className="finca__intro text-intro">{t("intro")}</p>
+              <motion.p
+                variants={isDesktop ? itemVariants : itemVariantsMobile}
+                className="finca__intro text-intro"
+              >
+                {t("intro")}
+              </motion.p>
               <section className="finca__details-container">
-                <picture>
+                <motion.picture variants={imageVariantsMobile}>
                   <source
                     type="image/webp"
                     srcSet={`${fincaMainMdWebpImg} 1050w, ${fincaMainSmWebpImg} 700w`}
@@ -55,8 +89,11 @@ const LaFinca = () => {
                     alt={t("altTextMainImg")}
                     className="finca__image-mobile"
                   />
-                </picture>
-                <section className="finca__details">
+                </motion.picture>
+                <motion.section
+                  variants={isDesktop ? itemVariants : itemVariantsMobile}
+                  className="finca__details"
+                >
                   <div className="finca__attribute">
                     {fincaItems.map((item) => (
                       <FincaItem
@@ -66,10 +103,13 @@ const LaFinca = () => {
                       />
                     ))}
                   </div>
-                </section>
+                </motion.section>
               </section>
             </div>
-            <figure className="finca__image-desktop-wrapper">
+            <motion.figure
+              variants={imageVariants}
+              className="finca__image-desktop-wrapper"
+            >
               <picture>
                 <source
                   type="image/webp"
@@ -87,11 +127,12 @@ const LaFinca = () => {
                   src={fincaMainMdJpgImg}
                   width="525"
                   height="748"
+                  fetchPriority="high"
                   alt={t("altTextMainImg")}
                   className="finca__image-desktop"
                 />
               </picture>
-            </figure>
+            </motion.figure>
           </main>
           <section className="finca__carousel">
             <SplideCarousel
@@ -107,7 +148,7 @@ const LaFinca = () => {
               gapLg={"24px"}
             />
           </section>
-        </section>
+        </motion.section>
       </Layout>
     </Curve>
   );

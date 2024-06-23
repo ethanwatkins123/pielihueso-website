@@ -56,7 +56,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(next, 2000);
+    const intervalId = setInterval(next, 1250);
     return () => clearInterval(intervalId);
   }, [imageNumber]);
 
@@ -104,6 +104,7 @@ const Home = () => {
             <img
               src={homeImages[imageNumber].imgMdPng}
               className="home__image"
+              fetchPriority="high"
               alt={t(homeImages[imageNumber].altText)}
             />
           </picture>

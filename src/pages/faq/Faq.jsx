@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import Layout from "../../layouts/layout/Layout";
 import AccordionPanel from "../../components/AccordionPanel";
@@ -18,12 +19,43 @@ import {
 const Faq = () => {
   const { t } = useTranslation("faq");
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.7, // Delay of 3 seconds
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { duration: 0.3, ease: "easeIn" } },
+  };
+
   return (
     <Curve>
       <Layout isColoredPage={true}>
-        <section className="faq">
-          <h1 className="faq__heading text-heading-primary">FAQ</h1>
-          <section className="faq__accordion">
+        <motion.section
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="faq"
+        >
+          <motion.h1
+            variants={item}
+            className="faq__heading text-heading-primary"
+          >
+            FAQ
+          </motion.h1>
+          <motion.section
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="faq__accordion"
+          >
             {faqItems.map((item) => (
               <AccordionPanel
                 key={item.id}
@@ -31,7 +63,7 @@ const Faq = () => {
                 answer={t(item.answer)}
               />
             ))}
-          </section>
+          </motion.section>
           <picture>
             <source
               type="image/webp"
@@ -43,15 +75,20 @@ const Faq = () => {
               srcSet={`${faqXlPngImg} 2800w, ${faqLgPngImg} 1800w, ${faqMdPngImg} 1200w, ${faqSmPngImg} 700w`}
               sizes="(max-width: 700px) 80vw, 60vw"
             />
-            <img
+            <motion.img
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeIn" }}
+              viewport={{ once: true, amount: 0.25 }}
               src={faqMdPngImg}
               width="900"
               height="591"
-              alt="Pielihueso broken glass logo"
+              loading="lazy"
+              alt={t("alt-text")}
               className="faq__image"
             />
           </picture>
-        </section>
+        </motion.section>
       </Layout>
     </Curve>
   );

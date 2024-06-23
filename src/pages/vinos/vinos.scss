@@ -36,10 +36,10 @@
 
   &__content {
     display: flex;
-    gap: 24px;
+    gap: 8.1%;
     margin-block-end: 56px;
 
-    @include u.breakpoint(medium) {
+    @include u.breakpoint(small) {
       flex-direction: column;
       gap: 37px;
       margin-block-end: 88px;
@@ -52,7 +52,6 @@
     }
 
     @include u.breakpoint(xlarge) {
-      gap: 24px;
       margin-block-end: 112px;
     }
   }
@@ -61,11 +60,7 @@
     width: 58%;
 
     @include u.breakpoint(large) {
-      width: 25.4%;
-    }
-
-    @include u.breakpoint(xlarge) {
-      width: 19.2%;
+      width: 25.5%;
     }
   }
 
@@ -85,7 +80,6 @@
     }
   }
 
-  // here
   .vinos__filter-button {
     font-size: clamp(
       0.75rem,
@@ -96,11 +90,9 @@
     letter-spacing: 0.036px;
     text-transform: uppercase;
     display: flex;
-    // color: var(--clr-black);
+    color: var(--clr-black);
     gap: 12px;
     align-items: center;
-    // background: none;
-    // border: none;
     margin-block-end: 8px;
     position: relative;
 
@@ -286,27 +278,88 @@
 }
 
 .container {
-  width: 100%;
+  // TODO: CARMELA TO CONFIRM WIDTH OF VINOS__BODY AND .CONTAINER
+  width: 50%;
+  display: flex;
+  flex-direction: column-reverse;
 
-  button {
-    display: block;
+  @include u.breakpoint(small) {
+    width: 100%;
+    flex-direction: column;
+  }
 
-    margin-left: auto;
-    margin-right: 20px;
+  @include u.breakpoint(large) {
+    width: 72.5%;
+  }
+
+  @include u.breakpoint(xlarge) {
+    width: 80%;
+  }
+
+  .flip-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-block-start: 16px;
+    color: (var(--clr-black));
+
+    & span {
+      font-size: 12px;
+      line-height: 1.5;
+      font-family: u.$fontBody;
+    }
+
+    & svg {
+      @include u.breakpoint(small) {
+        transform: rotate(-90deg);
+        width: 17px;
+        height: 11px;
+      }
+    }
+
+    @include u.breakpoint(small) {
+      margin-block-start: 0;
+    }
+    // show on tablet devices in landscape mode
+
+    @include u.breakpoint(large) {
+      display: none;
+    }
+  }
+
+  /* Media query to show the button on touch devices */
+  @media (pointer: coarse) and (hover: none) {
+    .flip-button {
+      display: flex;
+    }
   }
 }
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+
 .flip-card {
   cursor: pointer;
   background-color: transparent;
   width: 100%;
-  height: clamp(
-    14.3125rem,
-    5.383928571428573rem + 18.601190476190474vw,
-    22.125rem
-  );
-  // border: 1px solid red;
+  // This value needs to be the natural height of the img based on the .container width. Use clamp to make it responsive
+  height: clamp(20.6875rem, -6.21875rem + 123vw, 28.375rem);
+
   // perspective: 1000px; /* Remove this if you don't want the 3D effect */
+
+  @include u.breakpoint(small) {
+    height: clamp(
+      7.875rem,
+      -1.458240534521158rem + 33.18485523385301vw,
+      17.1875rem
+    );
+  }
+
+  @include u.breakpoint(large) {
+    height: clamp(
+      12.1875rem,
+      -1.5361445783132535rem + 24.397590361445783vw,
+      37.5rem
+    );
+  }
 }
 
 /* This container is needed to position the front and back side */
@@ -319,9 +372,24 @@
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateX(180deg);
+/* Apply hover effect only on devices that support hover */
+@media (hover: hover) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+
+    @include u.breakpoint(small) {
+      transform: rotateX(180deg);
+    }
+  }
+}
+
+// Apply flip when the class is added
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+
+  @include u.breakpoint(small) {
+    transform: rotateX(180deg);
+  }
 }
 
 /* Position the front and back side */
@@ -336,6 +404,10 @@
 
 /* Style the back side */
 .flip-card-back {
-  color: white;
-  transform: rotateX(180deg);
+  // color: white;
+  transform: rotateY(180deg);
+
+  @include u.breakpoint(small) {
+    transform: rotateX(180deg);
+  }
 }

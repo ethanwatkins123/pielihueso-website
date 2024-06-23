@@ -12,6 +12,7 @@ const SplideCarousel = ({
   widthMd,
   widthLg,
   widthXl,
+  widthXxl,
   gapSm,
   gapMd,
   gapLg,
@@ -46,7 +47,7 @@ const SplideCarousel = ({
         },
         breakpoints: {
           5000: {
-            fixedWidth: widthXl,
+            fixedWidth: widthXxl,
             gap: gapLg,
           },
           1900: {

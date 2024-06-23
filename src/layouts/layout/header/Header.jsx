@@ -14,6 +14,8 @@ function Header({ toggleMainVisibility }) {
           animate="visible"
           src={logoImg}
           alt="Pielihueso Home"
+          width="222"
+          height="26"
         />
       </Link>
       <MainNav toggleMainVisibility={toggleMainVisibility} />
